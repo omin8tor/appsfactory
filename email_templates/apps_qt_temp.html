@@ -1,600 +1,547 @@
 <link href="https://fonts.cdnfonts.com/css/helvetica-255" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
-<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&amp;display=swap" rel="stylesheet">
-    <meta charset="UTF-8">
-    <meta name="viewport">
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            background-color: #fff; 
-        }
-        #pdfgen-header, #pdfgen-footer, #pdfgen-content {
-            box-sizing: border-box;
-        }
-        #pdfgen-header {
-            display: block;
-            width: 100%;
-            height: 4.5cm;
-            background-color: #fff;
-            text-align: center;
-            font-size: 14px;
-            font-family: 'Roboto, Arial,  sans-serif';
+<link
+    href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&amp;display=swap"
+    rel="stylesheet">
+<meta charset="UTF-8">
+<meta name="viewport">
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        background-color: #fff;
+    }
 
-        }
-        #pdfgen-footer {
-            display: block;
-            width: 100%;
-            height: 4.5cm;
-            background-color: #fff;
-            text-align: center;
-            font-size: 14px;
-            border-top: 1px solid #000;
-            padding-bottom: 0.5cm;
-            font-family: 'Roboto, Arial,  sans-serif';
-        }
-        #pdfgen-content {
-            margin-top: 0cm;
-            margin-bottom: 0cm;
-            box-sizing: border-box;
-            padding-top: 1cm;
-            font-family: 'Roboto, Arial,  sans-serif';
-            page-break-inside: avoid;
-        }
-        .split-columns {
-            column-count: 2;
-            column-gap: 2em;
-            text-align:justify;
-        }
-            .split-columns li {
-                text-align:justify;
-            }
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            page-break-inside: auto;
-        }
-        thead {
-            display: table-header-group;
-                font-family: 'Roboto, Arial,  sans-serif';
-                /* background-color: none;
+    #pdfgen-header,
+    #pdfgen-footer,
+    #pdfgen-content {
+        box-sizing: border-box;
+    }
+
+    #pdfgen-header {
+        display: block;
+        width: 100%;
+        height: 4.5cm;
+        background-color: #fff;
+        text-align: center;
+        font-size: 14px;
+        font-family: 'Roboto, Arial,  sans-serif';
+
+    }
+
+    #pdfgen-footer {
+        display: block;
+        width: 100%;
+        height: 4.5cm;
+        background-color: #fff;
+        text-align: center;
+        font-size: 14px;
+        border-top: 1px solid #000;
+        padding-bottom: 0.5cm;
+        font-family: 'Roboto, Arial,  sans-serif';
+    }
+
+    #pdfgen-content {
+        margin-top: 0cm;
+        margin-bottom: 0cm;
+        box-sizing: border-box;
+        padding-top: 1cm;
+        font-family: 'Roboto, Arial,  sans-serif';
+        page-break-inside: avoid;
+    }
+
+    .split-columns {
+        column-count: 2;
+        column-gap: 2em;
+        text-align: justify;
+    }
+
+    .split-columns li {
+        text-align: left;
+    }
+    .split-columns, .split-columns p, .split-columns ul, .split-columns ol, .split-columns span, .split-columns li, .split-columns li li, .signature p, p.acceptance, .split-columns strong, .split-columns b {
+        font-size:10pt;
+        font-family:Roboto, Arial,  sans-serif;
+        color: #000000;
+    }
+    .split-columns h2, .split-columns h3 {
+        font-size:10pt;
+        font-family:Roboto, Arial,  sans-serif;
+        font-weight: bold;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        page-break-inside: auto;
+    }
+
+    thead {
+        display: table-header-group;
+        font-family: 'Roboto, Arial,  sans-serif';
+        /* background-color: none;
                 background-color:transparent; */
-                padding-bottom:1cm;
-        }
-        tbody {
-            display: table-row-group;
-        }
-        tr {
-            page-break-inside: avoid;
-            page-break-after: auto;
-                font-family: 'Roboto, Arial,  sans-serif';
-        }
-        th, td {
-            padding: 8px;
-            text-align: left;
-            border: 1px solid #ddd;
-                /* background-color: none;
+        padding-bottom: 1cm;
+    }
+
+    tbody {
+        display: table-row-group;
+    }
+
+    tr {
+        page-break-inside: avoid;
+        page-break-after: auto;
+        font-family: 'Roboto, Arial,  sans-serif';
+    }
+
+    th,
+    td {
+        padding: 8px;
+        text-align: left;
+        border: 1px solid #ddd;
+        /* background-color: none;
                 background-color:transparent; */
-            font-size: 18px;
-                font-family: 'Roboto, Arial,  sans-serif';
-        }
-        /* th {
+        font-size: 18px;
+        font-family: 'Roboto, Arial,  sans-serif';
+    }
+
+    /* th {
             background-color: #f2f2f2;
         } */
-        
-        
-        #pdfgen-header, #pdfgen-footer {
-            display: none;
-        }
 
-.info-table {
+
+    #pdfgen-header,
+    #pdfgen-footer {
+        display: none;
+    }
+    
+    #subform_1 tr, #subform_1 td, #subform_1 th {
+        padding: 5px 0 5px 15px !important;        /* Remove padding from cells */
+    margin: 0 !important;            /* Ensure no margin is applied */
+    border: none !important;         /* Remove any borders */
+    height: auto !important;         /* Allow rows to adjust height automatically */
+}
+
+table.quotations {
+    padding: 5px 0 5px 15px !important;   
+    border-collapse: collapse !important;  /* Collapse borders to remove gaps */
+    border-spacing: 0 !important;          /* Remove spacing between cells */
+    height: auto !important;
+    margin: 0 !important;
+    width: 100% !important;                /* Ensure table takes full width */
+    display: table !important;             /* Ensure it's treated as a table */
+}
+
+tbody#subform_1 {
+    padding: 5px 0 5px 15px !important;     
+    border-collapse: collapse !important;
+    border-spacing: 0 !important;
+    height: auto !important;
+    margin: 0 !important;
+}
+
+
+    .info-table {
         margin-top: 10px;
         width: 10%;
         margin-left: auto;
-        border-collapse: collapse; /* Ensure no table borders */
+        border-collapse: collapse;
+        /* Ensure no table borders */
         border: none;
     }
+
     .info-table td {
         padding: 2px;
         border: none;
-        border-collapse: collapse; /* Ensure no table borders */
+        border-collapse: collapse;
+        /* Ensure no table borders */
     }
+
     .border-none,
     tr.border-none {
         border: none;
-        border-collapse: collapse; /* Ensure no table borders */
+        border-collapse: collapse;
+        /* Ensure no table borders */
     }
+
     .border-left {
         border-left: none;
         border-right: none;
         border-color: black;
     }
+
     .btop {
         border-top: none;
     }
+
     .address-section {
-    position:relative;
+        position: relative;
         margin-top: -100px;
         font-size: 12px;
     }
-    
-        @media print {
-            body {
-                margin: 0;
-                padding: 0;
-                box-sizing: border-box;
-                padding-left:1.5cm;
-                padding-right:0.5cm;
-                padding-bottom:1cm;
-                font-family: 'Roboto, Arial,  sans-serif';
-            }
-            .page {
-                page-break-before: always;
-                width: 100%;
-                box-sizing: border-box;
-                padding-top: 15cm;
-                padding-bottom: 3cm;
-            }
-            .first-page #pdfgen-header {
-                display: block;
-                position: fixed;
-            }
-            
-            .last-page #pdfgen-footer {
-                display: block;
-                position: fixed;
-                bottom: 0;
-            }
-            td,thead,tr,tfoot {
-                font-family: 'Roboto, Arial,  sans-serif';
-            }
-            #subform_1 tr:nth-child(even) {
-                background-color: rgb(237, 237, 237);
-            }
+
+    @media print {
+        body {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            padding-left: 1.5cm;
+            padding-right: 0.5cm;
+            padding-bottom: 1cm;
+            font-family: 'Roboto, Arial,  sans-serif';
         }
-    </style>
+
+        .page {
+            page-break-before: always;
+            width: 100%;
+            box-sizing: border-box;
+            padding-top: 15cm;
+            padding-bottom: 3cm;
+        }
+
+        .first-page #pdfgen-header {
+            display: block;
+            position: fixed;
+        }
+
+        .last-page #pdfgen-footer {
+            display: block;
+            position: fixed;
+            bottom: 0;
+        }
+
+        td,
+        thead,
+        tr,
+        tfoot {
+            font-family: 'Roboto, Arial,  sans-serif';
+        }
+        #subform_1 tr:nth-child(even) {
+            background-color: rgb(237, 237, 237);
+        }
+    }
+</style>
 
 
-    <zcrm-pdfgen-margin top-margin="0.0" bottom-margin="0.0" left-margin="0.0" right-margin="0.0"></zcrm-pdfgen-margin>
-    <zcrm-pdfgen-spacing header-spacing="0.0" footer-spacing="0.0"></zcrm-pdfgen-spacing>
+<zcrm-pdfgen-margin top-margin="0.0" bottom-margin="0.0" left-margin="0.0" right-margin="0.0"></zcrm-pdfgen-margin>
+<zcrm-pdfgen-spacing header-spacing="0.0" footer-spacing="0.0"></zcrm-pdfgen-spacing>
 
-<section id="header-container" class="first-page" style="display: flex; justify-content: space-between;align-items: center;">
-    <div id="pdfgen-header" class="address-details" style="display: flex; justify-content: space-between; align-items: flex-start;">
-        
+<section id="header-container" class="first-page"
+    style="display: flex; justify-content: space-between;align-items: center;">
+    <div id="pdfgen-header" class="address-details"
+        style="display: flex; justify-content: space-between; align-items: flex-start;">
+
         <div style="text-align: left; flex: 1; padding-left:1.5cm; padding-top: 3cm;">
             <div>
-            <br>
-            <table class="info-table" style="margin-left: 0; border:none; border-collapse:collapse; cellspacing:0; cellpadding:0;line-height:1.2em;" border="0" cellspacing="0" cellpadding="0">
-                <tbody border="0" cellspacing="0" cellpadding="0"><tr border="0" cellspacing="0" cellpadding="0">
-                    <td border="0" cellspacing="0" cellpadding="0" style="line-height:1.2em;">
-                        <p style="font-size:6.5pt;font-family:Roboto, Arial,  sans-serif;margin-bottom:0.5cm;">Appsfactory GmbH - Dittrichring 5-9 - DE 04109 Leipzig</p>
-                        <p style="font-size:10pt;font-family:Roboto, Arial,  sans-serif;">Berlin Tourismus &amp; Kongress GmbH</p>
-                        <p style="font-size:10pt;font-family:Roboto, Arial,  sans-serif;">Geschäftsbereichsleitung Marketing &amp; Kommunikation</p>
-                        <p style="font-size:10pt;font-family:Roboto, Arial,  sans-serif;">Am Karlsbad 11</p>
-                        <p style="font-size:10pt;font-family:Roboto, Arial,  sans-serif;">10785 Berlin</p>
-                        <p style="font-size:10pt;font-family:Roboto, Arial,  sans-serif;">Deutschland</p></td>
-                </tr>
-                
-            </tbody></table>
-        </div>
-        
+                <br>
+                <table class="info-table"
+                    style="margin-left: 0; border:none; border-collapse:collapse; cellspacing:0; cellpadding:0;line-height:1.2em;"
+                    border="0" cellspacing="0" cellpadding="0">
+                    <tbody border="0" cellspacing="0" cellpadding="0">
+                        <tr border="0" cellspacing="0" cellpadding="0">
+                            <td border="0" cellspacing="0" cellpadding="0" style="line-height:1.2em;">
+                                <p style="font-size:6.5pt;font-family:Roboto, Arial,  sans-serif;margin-bottom:0.5cm;">
+                                    Appsfactory GmbH - Dittrichring 5-9 - DE 04109 Leipzig</p>
+                                <p style="font-size:10pt;font-family:Roboto, Arial,  sans-serif;">Berlin Tourismus &amp;
+                                    Kongress GmbH</p>
+                                <p style="font-size:10pt;font-family:Roboto, Arial,  sans-serif;">
+                                    Geschäftsbereichsleitung Marketing &amp; Kommunikation</p>
+                                <p style="font-size:10pt;font-family:Roboto, Arial,  sans-serif;">Am Karlsbad 11</p>
+                                <p style="font-size:10pt;font-family:Roboto, Arial,  sans-serif;">10785 Berlin</p>
+                                <p style="font-size:10pt;font-family:Roboto, Arial,  sans-serif;">Deutschland</p>
+                            </td>
+                        </tr>
+
+                    </tbody>
+                </table>
             </div>
+
+        </div>
     </div>
     <div id="pdfgen-header" style="display: flex;flex-direction: column;margin-left:auto;margin-right:0;">
-        
+
         <div style="padding-bottom:1cm; padding-right:1.5cm; padding-top: 3cm;margin-right:0;margin-left:auto;">
-        <div>
-            <br>
-            <table class="info-table" align="right">
-                <tbody>
-                    <tr>
-                        <td><img imgfilesize="6969" src="https://crm.zoho.eu/crm/viewInLineImage?fileContent=5b5793a15b73e5f387c863526da47ce526fb13084cf06c08b7156e5f7e449516dba3d85820fa78d42e5731cc28f32dc7d036b5caae1ab94b706c7b7d006fe5f4cef66cb28c8a89c000e4386d2ca4c1635d702ec52914129c644011ce1d079637" width="140px" style="margin-bottom:1cm;text-align: left;"></td>
-                    </tr>
-                    <tr>
-                    <td style="width:100px;"><p style="font-weight:bold;font-size:10pt;font-family:Roboto, Arial,  sans-serif;">Datum</p></td>
-                    <td style="text-align: right;"><p style="font-size:10pt;font-family:Roboto, Arial,  sans-serif;">${Quotes.Quotation Date}</p></td>
-                </tr>
-                <tr>
-                    <td style="width:20%;"><p style="font-weight:bold;font-size:10pt;font-family:Roboto, Arial,  sans-serif;">Kunden-Nr.</p></td>
-                    <td style="text-align: right;width:60%;"><p style="font-size:10pt;font-family:Roboto, Arial,  sans-serif;width:100%;">${Accounts.GSALES Customer Number}</p></td>
-                </tr>
-                <tr>
-                    <td style="width:20%;"><p style="font-weight:bold;font-size:10pt;font-family:Roboto, Arial,  sans-serif;">Angebots-Nr.</p></td>
-                    <td style="text-align: right;width:60%;"><p style="font-size:10pt;font-family:Roboto, Arial,  sans-serif;width:100%;"><span style="font-size: 13.3333px;">${Quotes.Quote Reference}</span></p></td>
-                </tr>
-                <tr>
-                    <td style="width:20%;"><p style="font-weight:bold;font-size:10pt;font-family:Roboto, Arial,  sans-serif;">Seite-Nr.</p></td>
-                    <td style="text-align: right;width:60%;"><p style="font-size:10pt;font-family:Roboto, Arial,  sans-serif;width:100%;"><span class="pageNumber"></span> / <span class="totalPage"></span></p></td>
-                </tr>
-                <tr>
-        
-                </tr>
-                
-            </tbody></table>
-        </div>
-        
+            <div>
+                <br>
+                <table class="info-table" align="right">
+                    <tbody>
+                        <tr>
+                            <td><img imgfilesize="6969"
+                                    src="https://crm.zoho.eu/crm/viewInLineImage?fileContent=5b5793a15b73e5f387c863526da47ce526fb13084cf06c08b7156e5f7e449516dba3d85820fa78d42e5731cc28f32dc7d036b5caae1ab94b706c7b7d006fe5f4cef66cb28c8a89c000e4386d2ca4c1635d702ec52914129c644011ce1d079637"
+                                    width="140px" style="margin-bottom:1cm;text-align: left;"></td>
+                        </tr>
+                        <tr>
+                            <td style="width:100px;">
+                                <p style="font-weight:bold;font-size:10pt;font-family:Roboto, Arial,  sans-serif;">Datum
+                                </p>
+                            </td>
+                            <td style="text-align: right;">
+                                <p style="font-size:10pt;font-family:Roboto, Arial,  sans-serif;">${Quotes.Quotation Date}</p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="width:20%;">
+                                <p style="font-weight:bold;font-size:10pt;font-family:Roboto, Arial,  sans-serif;">
+                                    Kunden-Nr.</p>
+                            </td>
+                            <td style="text-align: right;width:60%;">
+                                <p style="font-size:10pt;font-family:Roboto, Arial,  sans-serif;width:100%;">
+                                    ${Accounts.GSALES Customer Number}</p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="width:20%;">
+                                <p style="font-weight:bold;font-size:10pt;font-family:Roboto, Arial,  sans-serif;">
+                                    Angebots-Nr.</p>
+                            </td>
+                            <td style="text-align: right;width:60%;">
+                                <p style="font-size:10pt;font-family:Roboto, Arial,  sans-serif;width:100%;"><span
+                                        style="font-size: 13.3333px;">${Quotes.Quote Reference}</span></p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="width:20%;">
+                                <p style="font-weight:bold;font-size:10pt;font-family:Roboto, Arial,  sans-serif;">
+                                    Seite-Nr.</p>
+                            </td>
+                            <td style="text-align: right;width:60%;">
+                                <p style="font-size:10pt;font-family:Roboto, Arial,  sans-serif;width:100%;"><span
+                                        class="pageNumber"></span> / <span class="totalPage"></span></p>
+                            </td>
+                        </tr>
+                        <tr>
+
+                        </tr>
+
+                    </tbody>
+                </table>
             </div>
+
+        </div>
     </div>
-    
+
 </section>
 
-    <section id="page-container">
-    
-        <div id="pdfgen-content">
-        
-            <h4 style="font-weight:bold;font-size:13pt;font-family:Roboto, Arial,  sans-serif;line-height:0;margin-bottom:20px;">Angebot</h4>
-            <p style=""><font size="2" style="" face="Arial, Helvetica, sans-serif">${Accounts.Header Text}</font></p>
-            <table border="0" style="margin-bottom:1cm;">
-    <thead>
-        <tr class="border-none">
-		<th class="border-none" style="width: 5%;"><p style="font-size:8pt;font-family:Roboto, Arial,  sans-serif;">Nr.</p></th>
-        <th class="border-none" style="width: 8%;"><p style="font-size:8pt;font-family:Roboto, Arial,  sans-serif;">Menge</p></th>
-        <th class="border-none" style="width: 28%;"><p style="font-size:8pt;font-family:Roboto, Arial,  sans-serif;">Bezeichnung</p></th>
-        <th class="border-none" style="width: 12%;"><p style="font-size:8pt;font-family:Roboto, Arial,  sans-serif;">% Rabatt</p></th>
-        <th class="border-none" style="width: 12%;"><p style="font-size:8pt;font-family:Roboto, Arial,  sans-serif;">% MwSt</p></th>
-        <th class="border-none" style="width: 20%;"><p style="font-size:8pt;font-family:Roboto, Arial,  sans-serif;">Einzelpreis</p></th>
-        <th class="border-none" style="width: 28%;"><p style="font-size:8pt;font-family:Roboto, Arial,  sans-serif;">Gesamtpreis</p></th>
-			
-        </tr>
-    </thead>
-    <tbody id="subform_1" class="QuotedItems">
-        <!-- This section will be dynamically populated with items -->
-        <tr class="border-none">
-		<td class="border-none"><p style="font-size:10pt;font-family:Roboto, Arial,  sans-serif;">${Quoted Items.S.NO}</p></td>
-            <td class="border-none"><p style="font-size:10pt;font-family:Roboto, Arial,  sans-serif;">${Quoted Items.Quantity}</p></td>
-            <td class="border-none"><p style="font-size:10pt;font-family:Roboto, Arial,  sans-serif;"><b>${Quoted Items.Product Name}</b><br>${Quoted Items.Description}</p></td>
-            <td class="border-none"><p style="font-size:10pt;font-family:Roboto, Arial,  sans-serif;">${Quoted Items.Discount(%)}</p></td>
-            <td class="border-none"><p style="font-size:10pt;font-family:Roboto, Arial,  sans-serif;">${Quoted Items.Tax(%)}</p></td>
-            <td class="border-none"><p style="font-size:10pt;font-family:Roboto, Arial,  sans-serif;">${Quoted Items.List Price}</p></td>
-            <td class="border-none"><p style="font-size:10pt;font-family:Roboto, Arial,  sans-serif;">${Quoted Items.Amount}</p></td>
-        </tr>
-        <!-- Repeat above block for each item -->
-    </tbody>
-    </table>
-    <table style="border-top:1px solid black;width:100%;margin-top: 2cm;">
-    <tfoot border="0" style="padding-top: 5cm;">
-        <tr class="border-none">
-            <td class="border-none" style="text-align:left;width: 20%;"><p style="font-size:10pt;font-family:Roboto, Arial,  sans-serif;">Nettobetrag</p></td>
-            <td class="border-none" style="width: 10%;"></td>
-            <td class="border-none" style="width: 30%;"></td>
-            <td class="border-none" style="width: 12%;"></td>
-            <td class="border-none" style="width: 12%;"></td>
-            <td class="border-none" style="width: 28%;"><p style="font-size:10pt;font-family:Roboto, Arial,  sans-serif;">${Quotes.Net amount}</p></td>
-        </tr>
-        <tr class="border-none">
-            <td class="border-none" style="text-align: left;width: 20%;"><p style="font-size:10pt;font-family:Roboto, Arial,  sans-serif;">zzgl. MwSt.</p></td>
-            <td class="border-none" style="width: 10%;"></td>
-            <td class="border-none" style="width: 30%;"></td>
-            <td class="border-none" style="width: 12%;"></td>
-            <td class="border-none" style="width: 12%;"></td>
-            <td class="border-none" style="width: 28%;"><p style="font-size:10pt;font-family:Roboto, Arial,  sans-serif;">${Quotes.plus VAT}</p></td>
-        </tr>
-        <tr>
-            <td class="border-none"></td>
-        </tr>
-        <tr class="border-none">
-            <td class="border-left" style="text-align: left; font-weight: bold;width: 20%;"><p style="font-size:10pt;font-family:Roboto, Arial,  sans-serif;">Gesamtsumme</p></td>
-            <td class="border-left" style="width: 10%;"></td>
-            <td class="border-left" style="width: 30%;"></td>
-            <td class="border-left" style="width: 12%;"></td>
-            <td class="border-left" style="width: 12%;"></td>
-            <td class="border-left" style="width: 28%;"><p style="font-size:10pt;font-family:Roboto, Arial,  sans-serif;"><b>${Quotes.Offer amount}</b></p></td>
-        </tr>
-    </tfoot>
-    <!-- Additional summary rows -->
+<section id="page-container">
 
-</table>
-    
-    <div style="font-family:Roboto, Arial,  sans-serif;"><br></div><p style="font-family:Roboto, Arial,  sans-serif;">${Accounts.Footer Text}</p><div><br></div>
+    <div id="pdfgen-content">
+
+        <h4
+            style="font-weight:bold;font-size:13pt;font-family:Roboto, Arial,  sans-serif;line-height:0;margin-bottom:20px;">
+            Angebot</h4>
+        <p style="">
+            <font size="2" style="" face="Arial, Helvetica, sans-serif">${Accounts.Header Text}</font>
+        </p>
+        <table class="quotations" border="0" style="margin-bottom:1cm;" cellspacing="0" cellpadding="0">
+            <thead>
+                <tr class="border-none">
+                    <th class="border-none" style="width: 5%;">
+                        <p style="font-size:8pt;font-family:Roboto, Arial,  sans-serif;">Nr.</p>
+                    </th>
+                    <th class="border-none" style="width: 8%;">
+                        <p style="font-size:8pt;font-family:Roboto, Arial,  sans-serif;">Menge</p>
+                    </th>
+                    <th class="border-none" style="width: 28%;">
+                        <p style="font-size:8pt;font-family:Roboto, Arial,  sans-serif;">Bezeichnung</p>
+                    </th>
+                    <th class="border-none" style="width: 12%;">
+                        <p style="font-size:8pt;font-family:Roboto, Arial,  sans-serif;">% Rabatt</p>
+                    </th>
+                    <th class="border-none" style="width: 12%;">
+                        <p style="font-size:8pt;font-family:Roboto, Arial,  sans-serif;">% MwSt</p>
+                    </th>
+                    <th class="border-none" style="width: 20%;">
+                        <p style="font-size:8pt;font-family:Roboto, Arial,  sans-serif;">Einzelpreis</p>
+                    </th>
+                    <th class="border-none" style="width: 28%;">
+                        <p style="font-size:8pt;font-family:Roboto, Arial,  sans-serif;">Gesamtpreis</p>
+                    </th>
+
+                </tr>
+            </thead>
+            <tbody id="subform_1" class="QuotedItems">
+                <!-- This section will be dynamically populated with items -->
+                <tr class="border-none">
+                    <td class="border-none"></td>
+                    <td class="border-none" style="display:inline;width:60%;font-size:10pt;font-family:Roboto, Arial,  sans-serif;">
+                        ${Quoted Items.Group Title}
+                    </td>
+                </tr>
+                <tr class="border-none">
+                    <td class="border-none" style="font-size:10pt;font-family:Roboto, Arial,  sans-serif;">
+                        ${Quoted Items.S.NO}
+                    </td>
+                    <td class="border-none" style="font-size:10pt;font-family:Roboto, Arial,  sans-serif;">
+                        ${Quoted Items.Quantity}
+                    </td>
+                    <td class="border-none" style="font-size:10pt;font-family:Roboto, Arial,  sans-serif;">
+                        <b>${Quoted Items.Product Name}</b>
+                            <br>${Quoted Items.Description}
+                    </td>
+                    <td class="border-none" style="font-size:10pt;font-family:Roboto, Arial,  sans-serif;">
+                        ${Quoted Items.Discount(%)}
+                        
+                    </td>
+                    <td class="border-none" style="font-size:10pt;font-family:Roboto, Arial,  sans-serif;">
+                        ${Quoted Items.Tax(%)}
+                    </td>
+                    <td class="border-none" style="font-size:10pt;font-family:Roboto, Arial,  sans-serif;">
+                       ${Quoted Items.List Price}
+                    </td>
+                    <td class="border-none" style="font-size:10pt;font-family:Roboto, Arial,  sans-serif;">
+                        ${Quoted Items.Amount}
+                    </td>
+                </tr>
+                <!-- Repeat above block for each item -->
+            </tbody>
+        </table>
+        <table style="border-top:1px solid black;width:100%;margin-top: 2cm;">
+            <tfoot border="0" style="padding-top: 5cm;">
+                <tr class="border-none">
+                    <td class="border-none" style="text-align:left;width: 20%;">
+                        <p style="font-size:10pt;font-family:Roboto, Arial,  sans-serif;">Nettobetrag</p>
+                    </td>
+                    <td class="border-none" style="width: 10%;"></td>
+                    <td class="border-none" style="width: 30%;"></td>
+                    <td class="border-none" style="width: 12%;"></td>
+                    <td class="border-none" style="width: 12%;"></td>
+                    <td class="border-none" style="width: 28%;">
+                        <p style="font-size:10pt;font-family:Roboto, Arial,  sans-serif;">${Quotes.Net amount}</p>
+                    </td>
+                </tr>
+                <tr class="border-none">
+                    <td class="border-none" style="text-align: left;width: 20%;">
+                        <p style="font-size:10pt;font-family:Roboto, Arial,  sans-serif;">zzgl. MwSt.</p>
+                    </td>
+                    <td class="border-none" style="width: 10%;"></td>
+                    <td class="border-none" style="width: 30%;"></td>
+                    <td class="border-none" style="width: 12%;"></td>
+                    <td class="border-none" style="width: 12%;"></td>
+                    <td class="border-none" style="width: 28%;">
+                        <p style="font-size:10pt;font-family:Roboto, Arial,  sans-serif;">${Quotes.plus VAT}</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="border-none"></td>
+                </tr>
+                <tr class="border-none">
+                    <td class="border-left" style="text-align: left; font-weight: bold;width: 20%;">
+                        <p style="font-size:10pt;font-family:Roboto, Arial,  sans-serif;">Gesamtsumme</p>
+                    </td>
+                    <td class="border-left" style="width: 10%;"></td>
+                    <td class="border-left" style="width: 30%;"></td>
+                    <td class="border-left" style="width: 12%;"></td>
+                    <td class="border-left" style="width: 12%;"></td>
+                    <td class="border-left" style="width: 28%;">
+                        <p style="font-size:10pt;font-family:Roboto, Arial,  sans-serif;"><b>${Quotes.Offer amount}</b>
+                        </p>
+                    </td>
+                </tr>
+            </tfoot>
+            <!-- Additional summary rows -->
+
+        </table>
+
+        <div style="font-family:Roboto, Arial,  sans-serif;"><br></div>
+        <p style="font-family:Roboto, Arial,  sans-serif;">${Accounts.Footer Text}</p>
+        <div><br></div>
 
     </div>
-    
-        <div id="pdfgen-content">
 
-            <div class="split-columns">
-                <div>
-                    <h2 style="font-size:9pt;font-family:Roboto, Arial,  sans-serif;">Allgemeine Geschäftsbedingungen</h2>
-                    <h2 style="font-size:9pt;font-family:Roboto, Arial,  sans-serif;">1. Leistungen des Auftragnehmers</h2>
-            <p style="font-size:9pt;font-family:Roboto, Arial,  sans-serif;">Allgemein verpflichtet sich Appsfactory zur Umsetzung der im Angebot genannten Leistungen bzw. Projektschritte bei den jeweils beauftragten Betriebssystemen ab den nachfolgend genannten Versionsständen:</p>
-            <ul>
-                <li style="font-size:9pt;font-family:Roboto, Arial,  sans-serif;"><strong>Smartphones und Tablets</strong>
-                    <ul>
-                        <li style="font-size:9pt;font-family:Roboto, Arial,  sans-serif;">iPhone und iPad jeweils iOS 16 bis iOS 17</li>
-                        <li style="font-size:9pt;font-family:Roboto, Arial,  sans-serif;">Android Smartphones ab Version 9 bis Version 13</li>
-                        <li style="font-size:9pt;font-family:Roboto, Arial,  sans-serif;">Android Tablets ab Version 9 bis Version 13</li>
-                    </ul>
-                </li>
-            </ul>
-            <p style="font-size:10pt;font-family:Roboto, Arial,  sans-serif;">Die Prüfung der Funktionsfähigkeit wird standardmäßig im Rahmen dieses Angebotes für die Plattformen iOS und Android auf physischen Standardtestgeräten (siehe Auflistung unten), auf denen die oben genannten iOS- und Android Betriebssystem-Versionen laufen, durchgeführt. (Standardtestgeräte, Stand Q1 2023)</p>
-            
-            <h3><p style="font-size:10pt;font-family:Roboto, Arial,  sans-serif;">iOS:</p></h3>
-            <ul>
-                <li style="font-size:10pt;font-family:Roboto, Arial,  sans-serif;">iPhone 15</li>
-                <li style="font-size:10pt;font-family:Roboto, Arial,  sans-serif;">iPhone 14</li>
-                <li style="font-size:10pt;font-family:Roboto, Arial,  sans-serif;">iPhone 13</li>
-                <li style="font-size:10pt;font-family:Roboto, Arial,  sans-serif;">iPhone 12</li>
-            </ul>
-            <h3><p style="font-size:10pt;font-family:Roboto, Arial,  sans-serif;">Android:</p></h3>
-            <ul>
-                <li style="font-size:10pt;font-family:Roboto, Arial,  sans-serif;">Google Pixel 8</li>
-                <li style="font-size:10pt;font-family:Roboto, Arial,  sans-serif;">Google Pixel 7</li>
-                <li style="font-size:10pt;font-family:Roboto, Arial,  sans-serif;">Google Pixel 6</li>
-                <li style="font-size:10pt;font-family:Roboto, Arial,  sans-serif;">Samsung Galaxy S23</li>
-                <li style="font-size:10pt;font-family:Roboto, Arial,  sans-serif;">Samsung Galaxy S22</li>
-                <li style="font-size:10pt;font-family:Roboto, Arial,  sans-serif;">Samsung Galaxy S21</li>
-            </ul><p style="font-size:10pt;font-family:Roboto, Arial,  sans-serif;">Für “gerootete” Geräte oder “gejailbreakte” Geräte wird grundsätzlich keine Gewährleistung für die Funktionsfähigkeit der Anwendung übernommen. Für Geräte, die nicht zu den Standardtestgeräten gehören, wird keine Garantie für die Fehlerfreiheit der Applikation übernommen. Eine Testabdeckung über die zugesicherten 10 Standardgeräte hinaus kann auf Wunsch durch eine Zusatzbeauftragung erfolgen. Die konkrete Auflistung erfolgt im Testplan.</p>
+    <div id="pdfgen-content">
+
+        <div class="split-columns">
+            <div>
+                ${Quotes.First Page}
         </div>
-        
     </div>
-    </div>
-    
+
     <div id="pdfgen-content">
         <div class="split-columns">
-        <div>
-            <h3 style="margin-top: 0;"><p style="font-size:10pt;font-family:Roboto, Arial,  sans-serif;">Web</p></h3>
-            <p style="font-size:10pt;font-family:Roboto, Arial,  sans-serif;">Insofern nichts Abweichendes vereinbart wurde, wird bei der Entwicklung von Webapplikationen eine Funktionsfähigkeit für die genannten Browsermodelle geprüft. Validierungsgegenstand ist die aktuelle Version zum Zeitpunkt der finalen Abnahme:</p>
-            <p style="font-size:10pt;font-family:Roboto, Arial,  sans-serif;"><strong>Standard View:</strong>
-            </p><ul>
-                <li style="font-size:10pt;font-family:Roboto, Arial,  sans-serif;">Chrome für Windows und Mac</li>
-                <li style="font-size:10pt;font-family:Roboto, Arial,  sans-serif;">Firefox für Windows und Mac</li>
-                <li style="font-size:10pt;font-family:Roboto, Arial,  sans-serif;">Safari für Mac</li>
-                <li style="font-size:10pt;font-family:Roboto, Arial,  sans-serif;">Microsoft Edge Chromium</li>
-            </ul>
-            <p style="font-size:10pt;font-family:Roboto, Arial,  sans-serif;"><strong>Mobile View:</strong>
-            </p><ul>
-                <li style="font-size:10pt;font-family:Roboto, Arial,  sans-serif;">Android Browser (siehe unterstützte Android Version)</li>
-                <li style="font-size:10pt;font-family:Roboto, Arial,  sans-serif;">Safari Mobile (siehe unterstützte iOS Version)</li>
-                <li style="font-size:10pt;font-family:Roboto, Arial,  sans-serif;">Chrome Mobile (siehe unterstützte Android und iOS Version)</li>
-            </ul>
-            
-            <p style="font-size:10pt;font-family:Roboto, Arial,  sans-serif;"><strong>Automated Testing</strong></p>
-            <p style="font-size:10pt;font-family:Roboto, Arial,  sans-serif;">Zur Ausführung der automatisieren Tests auf mobilen Geräten und Browsern werden die Cloud-Lösung „Browserstack“ genutzt. Der Unterzeichner erklärt sich mit der Nutzung und dem Einsatz der genannten Cloud-Lösung einverstanden.</p>
-            
-            <p style="font-size:10pt;font-family:Roboto, Arial,  sans-serif;"><strong>Fullstack .NET</strong>
-            </p><p style="font-size:10pt;font-family:Roboto, Arial,  sans-serif;">Unser Fullstack .NET Support folgt der ".NET und .NET Core Support Policy" von Microsoft (<a href="https://dotnet.microsoft.com/en-us/platform/support/policy/dotnet-core">https://dotnet.microsoft.com/en-us/platform/support/policy/dotnet-core</a>). Für Produktionsversionen verwendet Appsfactory gerade Framework-Versionen, die den "Long time support" (LTS) von 3 Jahren nach der ersten Veröffentlichung haben, z.B. .NET Core 6 wurde im November 2021 veröffentlicht und wird bis November 2024 unterstützt. Nachdem der Support für die letzte LTS-Version abgelaufen ist, muss die Anwendung auf die nächsthöhere Version aktualisiert werden, um Sicherheitspatches und neue Funktionen von Microsoft zu erhalten.Dies kann mit zusätzlichen Kosten verbundensein, die durch dieses Angebot noch nicht abgedeckt sind.Um eine möglichst effiziente Testabdeckung zu schaffen,
-erfolgt die finale Abstimmung von gewünschtem
-Hersteller/Geräten/OS Kombinationen zwischen
-Auftraggeber und Auftragnehmer zum Zeitpunkt der
-Erstellung des Testplans. Änderungen können im Rahmen
-der Verfügbarkeit von Geräten und/oder
-Zeitbeschränkungen zum Projektabschluss notwendig
-werden. Die Anpassungen und Absprachen werden im
-Testplan festgehalten.&nbsp;</p><p><br></p>
-<h2 style="font-size:10pt;font-family:Roboto, Arial,  sans-serif;">2 Leistungen des Auftraggebers</h2>
-<p style="font-size:10pt;font-family:Roboto, Arial,  sans-serif;">Die Erbringung der Leistungen durch den Auftraggeber
-sind Voraussetzungen für das zu entwickelnde Produkt
-und müssen termingerecht an Auftragnehmer übergeben
-werden. Der Auftraggeber wird alle Inhalte, die zur
-Erstellung der Applikation notwendig sind und nicht explizit
-in der Angebotskalkulation als von Appsfactory zu
-erbringen bzw. zu beschaffen ausgewiesen sind,
-insbesondere Texte, Animationen, Videos und oder
-Grafiken in einem von Appsfactory vorgegebenen Format
-(z.B. png, xls, doc, etc.) und der notwendigen Größe
-(Zuschnitt) in elektronischer Form über eine dokumentierte
-Schnittstelle (z.B: JSON/REST, SOAP, XML, FTP, etc.)
-kostenfrei anliefern. Auftraggeber gewährt Auftragnehmer
-die Be- und Verarbeitungsrechte an den angelieferten
-Inhalten, soweit es zur Erstellung der Applikation
-erforderlich ist.</p><br>
-<p style="font-size:10pt;font-family:Roboto, Arial,  sans-serif;">Auftraggeber gewährt Appsfactory das Recht, den
-Auftraggeber als Referenzkunden zu benennen.</p><p><br></p>
-<h2 style="font-size:10pt;font-family:Roboto, Arial,  sans-serif;">3 Übertragung der Nutzungsrechte</h2>
-<p><font face="Roboto, Arial,  sans-serif" size="2">Die Appsfactory überträgt dem Auftraggeber die zeitlich
-unbeschränkten, weltweiten, exklusiven Nutzungsrechte
-am zu entwickelnden Produkt und gestattet ihm die
-unbeschränkte Verwertung und Übertragung der
-Nutzungsrechte. Die Nutzungsrechte am sogenannten
-Sourcecode, des Quellcodes der Applikation, verbleiben
-beim Auftragnehmer. Auftraggeber ist jedoch berechtigt
-aber nicht verpflichtet gegen ein Entgelt in Höhe von 50%
-des Auftragswertes der Applikation den Sourcecode
-(Quellcode des Programms) zu erwerben. Auftraggeber hat diesen Wunsch schriftlich zu äußern und das
-entsprechende Entgelt auf ein Konto der Appsfactory zu
-überweisen. Nach Eingang der Überweisung wird
-Appsfactory den Quellcode Auftraggeber elektronisch
-übermitteln (per Datenträger, Dropbox oder FTP-Zugang).</font></p><p><font face="Roboto, Arial,  sans-serif" size="2"><br></font></p><font face="Roboto, Arial,  sans-serif" size="2">
-<h2 style="font-size:10pt;font-family:Roboto, Arial,  sans-serif;">4 Haftung</h2>
-<p style="font-size:10pt;font-family:Roboto, Arial,  sans-serif;">Auftragnehmer haftet, gleich aus welchem Rechtsgrund,
-wie folgt: Beim Fehlen einer zugesicherten
-Produkteigenschaft, die der Auftragnehmer zu vertreten
-hat und für die er eine Garantie übernommen hat, für
-Arglist sowie für Schäden, für die der Auftragnehmer
-Vorsatz oder grobe Fahrlässigkeit zu vertreten hat, nach
-Maßgabe der gesetzlichen Bestimmungen. Schäden, die
-durch leichte Fahrlässigkeit entstanden sind, werden nur
-ersetzt, wenn es sich dabei um die Verletzung einer
-wesentlichen Pflicht (Kardinalpflicht oder wesentliche
-Nebenpflicht) handelt. In Fällen einer leicht fahrlässigen
-Verletzung einer wesentlichen Pflicht ist die Haftung der
-Höhe nach beschränkt auf den bei vergleichbaren
-Verträgen dieser Art typischen Schaden, der bei
-Vertragsschluss oder spätestens bei der Begehung der
-Pflichtverletzung vorhersehbar war, höchstens jedoch auf
-die Auftragssumme. Die Haftung für einen eventuellen
-Datenverlust oder -beschädigung ist auf den Aufwand
-beschränkt, der bei ordnungsgemäßer Datensicherung
-erforderlich wäre, um die Daten aus dem gesicherten
-Datenmaterial wiederherzustellen.</p><p><br></p>
-<h2 style="font-size:10pt;font-family:Roboto, Arial,  sans-serif;">5 Gewährleistung</h2>
-<p><font size="2"><font face="Roboto, Arial,  sans-serif">Rügen und Beanstandungen gleich welcher Art sind
-innerhalb von 3 Monaten nach Lieferung an den
-Auftraggeber schriftlich beim Auftragnehmer geltend zu
-machen. Danach gilt das Produkt als vertragsgemäß und
-mängelfrei abgenommen. Haftungsansprüche verjähren,
-wenn nicht anders vereinbart wurde, ein Jahr nach
-Lieferung der Software. Fehler im Sinne der
-Gewährleistung sind ausschließlich reproduzierbare</font><font face="Roboto, Arial,  sans-serif">
-Fehler, deren Ursache in Qualitätsmängeln der Software
-liegt. Reproduzierbar sind solche Fehler, dieeindeutig
-wiederholbar entstehen, wenn Appsfactory die vom
-Kunden spezifizierten Schritte zur Fehlererzeugung unter
-Verwendung der gleichen oder vergleichbaren
-Rahmenbedingungen des Kunden so exakt wie möglich
-nachstellt. Der Kunde verpflichtet sich, alle verfügbaren Informationen, Störungsberichte, Logfiles und alle anderen
-zur Analyse und Bearbeitung der Störung erforderlichen
-Unterlagen und Informationen zur Verfügung zu stellen.
-Kein Fehler ist daher eine Funktionsbeeinträchtigung, die
-aus Hardware-Mängeln, Umgebungsbedingungen,
-Fehlbedienungen, schadhaften Daten und sonstigen aus
-dem Risikobereich des Kunden stammenden Gründen
-resultiert. Nimmt Appsfactory auf Anforderung des
-Auftraggebers eine Störungsanalyse vor und stellt sich
-heraus, dass keine Störung vorliegt, zu deren Beseitigung
-Appsfactory im Rahmen der Garantie verpflichtet ist, kann
-dem Kunden der entsprechende Aufwand auf der
-Grundlage der jeweils gültigen Stundensätze in Rechnung
-gestellt werden.</font></font></p>
-<p style="font-size:10pt;font-family:Roboto, Arial,  sans-serif;"><br>
-</p><h2><font face="Roboto, Arial,  sans-serif" size="2">6 Fälligkeiten und Rechnungsstellung</font></h2>
-<p><font face="Roboto, Arial,  sans-serif" size="2">Mit Angebotsannahme sind 50% des Auftragswertes fällig.
-Die verbleibenden 50% sind mit der Übergabe des fertig
-gestellten Produktes zum Ausgleich zu bringen. Sämtliche
-Zahlungen sind sofort nach Rechnungseingang beim
-Auftraggeber ohne Abzug fällig, außer es bestehen
-gesonderte vertragliche Vereinbarungen zwischen den
-Parteien. Ist Auftraggeber mit der Lieferung von
-Informationen oder Daten im Verzug die zur Realisierung
-der Applikation von Appsfactory benötigt werden, sind die
-verbleibenden 50% ab dem 180. Tag nach Datum der
-Angebotsannahme fällig, ohne jedoch Appsfactory von der
-noch zu erbringenden vertraglichen Leistungsverpflichtung
-zu entbinden. Die Rechnungsstellung erfolgt ab 1.1.2012
-entsprechend der gesetzlichen Möglichkeiten durch den
-Versand von elektronischen Rechnungen im PDF-Format
-per Mail an Auftraggeber.</font></p>
-<p style="font-size:10pt;font-family:Roboto, Arial,  sans-serif;"><br>
-</p><h2><font face="Roboto, Arial,  sans-serif" size="2">7 Verzug</font></h2>
-<p></p></font><p style="font-size:10pt;font-family:Roboto, Arial,  sans-serif;"><font face="Roboto, Arial,  sans-serif" size="2">Befindet sich der Auftraggeber im Verzug, erlaubt sich der
-Auftragnehmer für jede schriftliche Mahnung eine
-Aufwandspauschale von 10 Euro zu erheben.
-Verzugszinsen werden in Höhe von 5% über dem
-jeweiligen Basiszinssatz per annum berechnet. Die
-Geltendmachung eines höheren Verzugsschadens bleibt
-vorbehalten.</font></p>
-<p style="font-size:10pt;font-family:Roboto, Arial,  sans-serif;"><br>
-</p><h2><font face="Roboto, Arial,  sans-serif" size="2">8 Eigentumsvorbehalt</font></h2>
-<p><font face="Roboto, Arial,  sans-serif" size="2">Bis zur vollständigen Begleichung aller gegen den
-Auftraggeber bestehenden Ansprüche verbleibt das
-gelieferte Produkt im Eigentum des Auftragnehmers.</font></p>
-<p style="font-size:10pt;font-family:Roboto, Arial,  sans-serif;"><br>
-</p><h2><font face="Roboto, Arial,  sans-serif" size="2">9 Änderungen nach Abnahme/Freigabe App-Design,
-Skill-Design, Clickdummy/Wireframe bzw.
-Schnitstelle</font></h2>
-<p style="font-size:10pt;font-family:Roboto, Arial,  sans-serif;">Nachträgliche Änderungswünsche an der Applikation
-setzen wir gerne zum im Angebot vereinbarten Tagessatz
-der jeweiligen Gewerke um. Sämtliche Preise verstehen
-sich als Nettopreise, zuzüglich der jeweils gültigen USt.</p>
-<p style="font-size:10pt;font-family:Roboto, Arial,  sans-serif;"><br>
-</p><h2><p style="font-size:10pt;font-family:Roboto, Arial,  sans-serif;">10 Gültigkeit und Annahme des Angebotes</p></h2>
-<p><font face="Roboto, Arial,  sans-serif" size="2">Der Auftragnehmer sieht sich 30 Kalendertage ab dem
-Folgetag des Datums der Angebotserstellung
-(ausgewiesen auf dem Angebot) an dieses Angebot
-gebunden. Die Annahme des Angebotes erfolgt durch
-Unterzeichnung durch beide Parteien. Falls bis zu diesem
-Zeitpunkt nicht beide Parteien das Angebot unterzeichnet
-haben, verfällt das Angebot, ohne dass es einer weiteren
-Information seitens Appsfactory bedarf.</font></p>
-<p style="font-size:10pt;font-family:Roboto, Arial,  sans-serif;"><br>
-</p><h2><font face="Roboto, Arial,  sans-serif" size="2">11 Geheimhaltungsverpflichtung</font></h2>
-<p><font face="Roboto, Arial,  sans-serif" size="2">(1) Die Parteien vereinbaren, über den Inhalt des
-Angebotes Stillschweigen zu wahren. Diese Verpflichtung
-besteht für einen Zeitraum von einem Jahr nach
-Beendigung des Vertrags fort.
-(2) Von dieser Verpflichtung ausgenommen sind solche
-vertraulichen Informationen,
-(a) die dem Empfänger bei Abschluss des Vertrags
-nachweislich bereits bekannt waren oder danach von
-dritter Seite bekannt werden, ohne dass dadurch eine
-Vertraulichkeitsvereinbarung, gesetzliche Vorschriften
-oder behördliche Anordnungen verletzt werden;
-(b) die bei Abschluss des Vertrags öffentlich bekannt sind
-oder danach öffentlich bekannt gemacht werden, soweit
-dies nicht auf einer Verletzung dieses Vertrags beruht;
-(c) die aufgrund gesetzlicher Verpflichtungen oder auf
-Anordnung eines Gerichtes oder einer Behörde
-offengelegt werden müssen. Soweit zulässig und möglich
-wird der zur Offenlegung verpflichtete Empfänger die andere Partei vorab unterrichten und ihr die Gelegenheit
-geben, gegen die Offenlegung vorzugehen.</font></p>
-<p style="font-size:10pt;font-family:Roboto, Arial,  sans-serif;"><br>
-</p><h2><font face="Roboto, Arial,  sans-serif" size="2">12 Keine Geltung abweichender AGB</font></h2>
-<p><font face="Roboto, Arial,  sans-serif" size="2">Inhaltlich abweichende Geschäftsbedingungen des
-Auftraggebers oder Dritter finden keine Anwendung, auch
-wenn Appsfactory ihrer Geltung im Einzelfall nicht
-gesondert widerspricht. Selbst wenn Appsfactory auf ein
-Schreiben oder E-Mail Bezug nimmt, das
-Geschäftsbedingungen des Auftraggebers oder Dritter
-enthält, oder wenn Appsfactory mit der
-Vertragsdurchführung beginnt, liegt darin kein
-Einverständnis mit der Geltung der abweichenden
-Geschäftsbedingungen. Auf diesen Vertrag ist das deutsche Recht unter
-Ausschluss des Übereinkommens der Vereinten Nationen
-über Verträge über den internationalen Warenverkauf vom
-11.4.1980 (UN-Kaufrecht) anzuwenden.
-Sollten eine oder mehrere Bestimmungen dieses
-Angebots unwirksam sein oder werden oder sollte sich in
-ihnen eine Lücke herausstellen, so wird die Wirksamkeit
-der übrigen Bestimmungen hiervon nicht berührt. Die
-unwirksame Geschäftsbedingung ist durch eine ihrem
-wirtschaftlichen und rechtlichen Inhalt am nächsten
-kommende Geschäftsbedingung zu ersetzen.
-Es bestehen keine weiteren schriftlichen oder mündlichen
-Nebenvereinbarungen. Erfüllungsort ist Leipzig.
-Gerichtsstand ist Leipzig. Das Angebot wird mit den
-Unterschriften verbindlich angenommen.</font></p>
-
-
-        </div>
-            </div>
-        </div>
-    </section>
-    <div>
-            <p><font face="Roboto, Arial,  sans-serif" size="2" style="">&nbsp;<font size="2"><input type="checkbox" id="consentCheckbox" name="consentCheckbox" required=""> Ich willige ein, dass mir Appsfactory GmbH ca. 4x jährlich fachspezifische, branchenrelevante Informationen per E-Mail zusendet. Meine Daten (Vor- und Nachname, E-Mail-Adresse) werden ausschließlich zu diesem Zweck genutzt. Eine Weitergabe an Dritte erfolgt nicht. Ich kann die Einwilligung jederzeit per E-Mail an <a href="mailto:info@appsfactory.de" style="">info@appsfactory.de</a> widerrufen.</font></font></p><p><br></p><p><br></p>
-            
-            <div class="signature" style="display:flex;justify-content:space-between;align-items: stretch;">
-                <div>
-                <p>________________________________<span style="white-space:pre">	</span></p>
-                <p><font face="Roboto, Arial,  sans-serif" size="2" style="">Auftraggeber</font></p>
-            </div>
             <div>
-                <p>________________________________<span style="white-space:pre">	</span></p>
-                <p><font face="Roboto, Arial,  sans-serif" size="2" style="">Appsfactory GmbH</font></p>
-            </div>
+                ${Quotes.Second Page}
             </div>
         </div>
-        
-    <section id="footer-container" class="last-page" style="padding-top:2cm;">
-<div id="pdfgen-footer" style="padding-right: 0; padding-left: 0;padding-bottom:1cm; padding-top:1cm; display: flex; justify-content: space-between; font-family: 'Roboto, Arial,  sans-serif';">
-    <br><br><br><br><br>
-    <div style="display: flex; width: 100%;   padding-top: 5px; padding-bottom: 5px; padding-left: 1.5cm; padding-right:0.5cm;">
-        <div style="flex: 1; text-align: left; padding-left: 0;">
-            <p style="font-size:7.5pt;font-family:Roboto, Arial,  sans-serif;"><strong>Kontakt</strong><br>
-            Appsfactory GmbH<br>
-            Tel: +49(0)341 355 92 050<br>
-            Fax: +49(0)341 355 92 060<br>
-            E-Mail: <a style="text-decoration: none;color:black;" href="mailto:info@appsfactory.de">info@appsfactory.de</a><br>
-            Web: <a style="text-decoration: none;color:black;" href="http://www.appsfactory.de" target="_blank">www.appsfactory.de</a></p>
+    </div>
+    <div id="pdfgen-content">
+        <div class="split-columns">
+            <div>
+                ${Quotes.Third Page}
+            </div>
         </div>
-        <div style="flex: 1; padding-left: 0px; text-align: left;">
-            <p style="font-size:7.5pt;font-family:Roboto, Arial,  sans-serif;"><strong>Bankverbindung</strong><br>
-            Sparkasse Leipzig<br>
-            IBAN: DE35 8605 5592 1090 002935<br>
-            BIC: WELADE8LXXX</p>
+    </div>
+    <div id="pdfgen-content">
+        <div class="split-columns">
+            <div>
+                ${Quotes.Fourth Page}
+            </div>
         </div>
-        <div style="flex: 1; padding-left: 50px; text-align: left;">
-            <p style="font-size:7.5pt;font-family:Roboto, Arial,  sans-serif;"><strong>Handelsregister</strong><br>
-            Amtsgericht Leipzig<br>
-            HRB 25568<br>
-            UST-ID: DE 267330436</p>
+    </div>
+    <div id="pdfgen-content">
+        <div class="split-columns">
+            <div>
+                ${Quotes.Fifth Page}
+            </div>
         </div>
-        <div style="flex: 1; padding-left: 20px; text-align: left;">
-            <p style="font-size:7.5pt;font-family:Roboto, Arial,  sans-serif;"><strong>Geschäftsführung</strong><br>
-            Dr. Alexander Trommen<br>
-            Dr. Roman Belter<br>
-            Dr. Rolf Kluge</p>
+    </div>
+</section>
+<div id="pdfgen-content">
+    <p class="acceptance"><input type="checkbox"
+                    id="consentCheckbox" name="consentCheckbox" required="">${Quotes.Checkbox Information} <a href="mailto:info@appsfactory.de" style="">info@appsfactory.de</a> widerrufen.
+    </p>
+    <p><br></p>
+    <p><br></p>
+
+    <div class="signature" style="display:flex;justify-content:space-between;align-items: stretch;">
+        <div>
+            <p>________________________________<span style="white-space:pre"> </span></p>
+            <p>Auftraggeber
+            </p>
+        </div>
+        <div>
+            <p>________________________________<span style="white-space:pre"> </span></p>
+            <p>Appsfactory GmbH
+            </p>
         </div>
     </div>
 </div>
+
+<section id="footer-container" class="last-page" style="padding-top:2cm;">
+    <div id="pdfgen-footer"
+        style="padding-right: 0; padding-left: 0;padding-bottom:1cm; padding-top:1cm; display: flex; justify-content: space-between; font-family: 'Roboto, Arial,  sans-serif';">
+        <br><br><br><br><br>
+        <div
+            style="display: flex; width: 100%;   padding-top: 5px; padding-bottom: 5px; padding-left: 1.5cm; padding-right:0.5cm;">
+            <div style="flex: 1; text-align: left; padding-left: 0;">
+                <p style="font-size:7.5pt;font-family:Roboto, Arial,  sans-serif;"><strong>Kontakt</strong><br>
+                    Appsfactory GmbH<br>
+                    Tel: +49(0)341 355 92 050<br>
+                    Fax: +49(0)341 355 92 060<br>
+                    E-Mail: <a style="text-decoration: none;color:black;"
+                        href="mailto:info@appsfactory.de">info@appsfactory.de</a><br>
+                    Web: <a style="text-decoration: none;color:black;" href="http://www.appsfactory.de"
+                        target="_blank">www.appsfactory.de</a></p>
+            </div>
+            <div style="flex: 1; padding-left: 0px; text-align: left;">
+                <p style="font-size:7.5pt;font-family:Roboto, Arial,  sans-serif;"><strong>Bankverbindung</strong><br>
+                    Sparkasse Leipzig<br>
+                    IBAN: DE35 8605 5592 1090 002935<br>
+                    BIC: WELADE8LXXX</p>
+            </div>
+            <div style="flex: 1; padding-left: 50px; text-align: left;">
+                <p style="font-size:7.5pt;font-family:Roboto, Arial,  sans-serif;"><strong>Handelsregister</strong><br>
+                    Amtsgericht Leipzig<br>
+                    HRB 25568<br>
+                    UST-ID: DE 267330436</p>
+            </div>
+            <div style="flex: 1; padding-left: 20px; text-align: left;">
+                <p style="font-size:7.5pt;font-family:Roboto, Arial,  sans-serif;"><strong>Geschäftsführung</strong><br>
+                    Dr. Alexander Trommen<br>
+                    Dr. Roman Belter<br>
+                    Dr. Rolf Kluge</p>
+            </div>
+        </div>
+    </div>
 </section>
