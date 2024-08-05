@@ -202,7 +202,14 @@
         font-size: 12px;
     }
     
-
+.contactInformation, .contactInformation td, .contactInformation tr {
+    font-family: 'Roboto, Arial,  sans-serif';
+    font-size: 7.5pt !important;
+    border: none;
+    border-collapse: collapse;
+    padding:0;
+    margin:0;
+}
     @media print {
         body {
             margin: 0;
@@ -404,7 +411,7 @@
                     </td>
                     <td class="border-none" style="font-size:10pt;font-family:Roboto, Arial,  sans-serif;">
                         ${Quoted Items.Product Name}
-                            <br>${Quoted Items.Description}
+                            <br><p>${Quoted Items.Description}</p>
                     </td>
                     <td class="border-none" style="font-size:10pt;font-family:Roboto, Arial,  sans-serif;">
                         ${Quoted Items.Discount(%)}
@@ -541,15 +548,26 @@
         <br><br><br><br><br>
         <div
             style="display: flex; width: 100%;   padding-top: 5px; padding-bottom: 5px; padding-left: 1.5cm; padding-right:0.5cm;">
-            <div style="flex: 1; text-align: left; padding-left: 0;">
-                <p style="font-size:7.5pt;font-family:Roboto, Arial,  sans-serif;"><strong>Kontakt</strong><br>
+            <div style="flex: 1; text-align: justify; padding-left: 0;">
+                <p style="font-size:7.5pt;font-family:Roboto, Arial, sans-serif;"><strong>Kontakt</strong><br>
                     Appsfactory GmbH<br>
-                    Tel: +49(0)341 355 92 050<br>
-                    Fax: +49(0)341 355 92 060<br>
-                    E-Mail: <a style="text-decoration: none;color:black;"
-                        href="mailto:info@appsfactory.de">info@appsfactory.de</a><br>
-                    Web: <a style="text-decoration: none;color:black;" href="http://www.appsfactory.de"
-                        target="_blank">www.appsfactory.de</a></p>
+                    <table class="contactInformation" cellspacing="0" cellpadding="0" border="0">
+                        <tr  cellspacing="0" cellpadding="0">
+                    <td style="font-size:7.5pt;font-family:Roboto, Arial, sans-serif;">Tel:</td> 
+                    <td style="font-size:7.5pt;font-family:Roboto, Arial, sans-serif;text-align: right;">+49(0)341 355 92 050</td>
+                </tr><tr>
+                        <td style="font-size:7.5pt;font-family:Roboto, Arial, sans-serif;">Fax:</td> 
+                    <td style="font-size:7.5pt;font-family:Roboto, Arial, sans-serif;text-align: right;">+49(0)341 355 92 060</td>
+                </tr>
+                <tr>
+                    <td style="font-size:7.5pt;font-family:Roboto, Arial, sans-serif;">E-Mail: </td> 
+                    <td style="font-size:7.5pt;font-family:Roboto, Arial, sans-serif;text-align: right;"><a style="text-decoration: none;color:black;font-size:7.5pt;font-family:Roboto, Arial, sans-serif;"
+                        href="mailto:info@appsfactory.de">info@appsfactory.de</a></td>
+                    </tr>
+                <tr>
+                    <td style="font-size:7.5pt;font-family:Roboto, Arial, sans-serif;">Web:  </td> 
+                    <td style="font-size:7.5pt;font-family:Roboto, Arial, sans-serif;text-align: right;"><a style="text-decoration: none;color:black;font-size:7.5pt;font-family:Roboto, Arial, sans-serif;" href="http://www.appsfactory.de"
+                        target="_blank">www.appsfactory.de</a></td></table></p>
             </div>
             <div style="flex: 1; padding-left: 0px; text-align: left;">
                 <p style="font-size:7.5pt;font-family:Roboto, Arial,  sans-serif;"><strong>Bankverbindung</strong><br>
