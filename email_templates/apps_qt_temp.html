@@ -146,7 +146,7 @@
         height: auto !important;
         margin: 0 !important;
         width: 100% !important;                /* Ensure table takes full width */
-        display: table !important;             /* Ensure it's treated as a table */
+        display: table !important;          /* Ensure it's treated as a table */
     }
     .quotations tfoot {
         padding: 5px !important;   
@@ -233,6 +233,13 @@
             padding-top: 15cm;
             padding-bottom: 3cm;
         }
+
+        /* .qt_head {
+            position: fixed;
+            display:block;
+            margin-top: 0cm !important;
+            top: 0;
+        } */
 
         .first-page #pdfgen-header {
             display: block;
@@ -370,7 +377,7 @@
             <p style="font-size:10pt;font-family:Roboto, Arial,  sans-serif;color:#000000 !important;">${Accounts.Header Text}</p>
         
         <table class="quotations" border="0" style="margin-bottom:1cm;" valign="top" cellspacing="0" cellpadding="0">
-            <thead>
+            <thead class="qt_head">
                 <tr class="border-none">
                     <th class="border-none" style="width: 5%;">
                         <p style="font-size:8pt;font-family:Roboto, Arial,  sans-serif;">Nr.</p>
@@ -411,7 +418,7 @@
                         ${Quoted Items.S.NO}
                     </td>
                     <td class="border-none" style="font-size:10pt;font-family:Roboto, Arial,  sans-serif;">
-                        ${Quoted Items.Quantity} d
+                        ${Quoted Items.Quantity} ${Quoted Items.Timeframe Format}
                     </td>
                     <td class="border-none" style="font-size:10pt;font-family:Roboto, Arial,  sans-serif;">
                         ${Quoted Items.Product Name}
