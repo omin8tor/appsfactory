@@ -130,7 +130,7 @@
         vertical-align: top;       /* Allow rows to adjust height automatically */
     }
      .quotations tfoot tr, .quotations tfoot td {
-        padding: 5px !important;        /* Remove padding from cells */
+        padding: 2px 5px !important;        /* Remove padding from cells */
         margin: 0 !important;            /* Ensure no margin is applied */
         height: auto !important;    
         border-collapse: collapse !important;  /* Collapse borders to remove gaps */
@@ -215,13 +215,14 @@
     padding:0;
     margin:0;
 }
+
     @media print {
         body {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            padding-left: 1.5cm;
-            padding-right: 0.5cm;
+            padding-left: 1cm;
+            padding-right: 1cm;
             padding-bottom: 1cm;
             font-family: 'Roboto, Arial,  sans-serif';
         }
@@ -241,9 +242,9 @@
             top: 0;
         } */
 
-        #s_head {
+        div#s_head {
             /* display: block; */
-            position: fixed;
+            position: fixed !important;
         }
 
         .last-page #pdfgen-footer {
@@ -273,10 +274,10 @@
 
 <section id="header-container" class="first-page"
     style="display: flex; justify-content: space-between;align-items: center;">
-    <div id="pdfgen-header" class="address-details"
+    <div  class="address-details"
         style="display: flex; justify-content: space-between; align-items: flex-start;">
 
-        <div style="text-align: left; flex: 1; padding-left:1.5cm; padding-top: 3cm;">
+        <div style="text-align: left; flex: 1; padding-left:1cm; padding-top: 3cm;">
             <div>
                 <br>
                 <table class="info-table"
@@ -305,7 +306,7 @@
     </div>
     <div id="pdfgen-header s_head" style="display: flex;flex-direction: column;margin-left:auto;margin-right:0;">
 
-        <div style="padding-bottom:1cm; padding-right:1.5cm; padding-top: 3cm;margin-right:0;margin-left:auto;">
+        <div style="padding-bottom:1cm; padding-right:1cm; padding-top: 3cm;margin-right:0;margin-left:auto;">
             <div>
                 <br>
                 <table class="info-table" align="right">
@@ -374,15 +375,15 @@
         <h4
             style="font-weight:bold;font-size:13pt;font-family:Roboto, Arial,  sans-serif;line-height:0;margin-bottom:20px;">
             Angebot</h4>
-            <p style="font-size:10pt;font-family:Roboto, Arial,  sans-serif;color:#000000 !important;">${Accounts.Header Text}</p>
+            <p style="font-size:10pt;font-family:Roboto, Arial,  sans-serif;color:#000000 !important;">${Accounts.Header Copy}</p>
         
         <table class="quotations" border="0" style="margin-bottom:1cm;" valign="top" cellspacing="0" cellpadding="0">
             <thead class="qt_head">
                 <tr class="border-none">
-                    <th class="border-none" style="width: 5%;">
+                    <th class="border-none" style="width: 4%;">
                         <p style="font-size:8pt;font-family:Roboto, Arial,  sans-serif;">Nr.</p>
                     </th>
-                    <th class="border-none" style="width: 8%;">
+                    <th class="border-none" style="width: 7%;">
                         <p style="font-size:8pt;font-family:Roboto, Arial,  sans-serif;">Menge</p>
                     </th>
                     <th class="border-none" style="width: 40%;">
@@ -394,7 +395,7 @@
                     <th class="border-none" style="width: 8%;">
                         <p style="font-size:8pt;font-family:Roboto, Arial,  sans-serif;text-align:right">% MwSt</p>
                     </th>
-                    <th class="border-none" style="width: 12%;">
+                    <th class="border-none" style="width: 14%;">
                         <p style="font-size:8pt;font-family:Roboto, Arial,  sans-serif;text-align:right">Einzelpreis</p>
                     </th>
                     <th class="border-none" style="width: 14%;">
@@ -408,7 +409,7 @@
                 <tr class="title">
                     <td class="border-none"></td>
                     <td class="border-none"></td>
-                    <td colspan="5" style="font-size:10pt;font-family:Roboto, Arial,  sans-serif;padding:10px 0 10px 5px !important;">
+                    <td colspan="5" style="font-size:10pt;font-family:Roboto, Arial,  sans-serif;padding:5px 0 10px 5px !important;">
                         <b>${Quoted Items.Group Title}</b>
                     </td>
                 </tr>
@@ -429,7 +430,7 @@
                         
                     </td>
                     <td class="border-none" style="font-size:10pt;font-family:Roboto, Arial,  sans-serif;text-align:right">
-                        ${Quoted Items.Tax(%)}
+                        ${Quoted Items.Tax(%)} %
                     </td>
                     <td class="border-none" style="font-size:10pt;font-family:Roboto, Arial,  sans-serif;text-align:right">
                        ${Quoted Items.List Price}
@@ -445,38 +446,38 @@
         <table class="quotations" style="border-top:2px solid black;width:100%;margin-top: 2cm;" cellspacing="0" cellpadding="0">
             <tfoot border="0" style="padding-top: 1cm;"  cellspacing="0" cellpadding="0">
                 <tr class="border-none" cellspacing="0" cellpadding="0">
-                    <td class="border-none" style="width: 10%;"></td>
                     <td class="border-none" style="text-align:left;width: 20%;font-weight:bold;">
                         Nettobetrag
                     </td>
+                    <td class="border-none" style="width: 10%;"></td>
                     <td class="border-none" style="width: 30%;"></td>
                     <td class="border-none" style="width: 12%;"></td>
                     <td class="border-none" style="width: 12%;"></td>
-                    <td class="border-none" style="width: 28%;">
+                    <td class="border-none" style="width: 28%;text-align:right;">
                       ${Quotes.Net amount}
                     </td>
                 </tr>
                 <tr class="border-none" cellspacing="0" cellpadding="0">
-                    <td class="border-none" style="width: 10%;"></td>
                     <td class="border-none" style="text-align:left;width: 20%;">
                         enth. Rabatt
                     </td>
+                    <td class="border-none" style="width: 10%;"></td>
                     <td class="border-none" style="width: 30%;"></td>
                     <td class="border-none" style="width: 12%;"></td>
                     <td class="border-none" style="width: 12%;"></td>
-                    <td class="border-none" style="width: 28%;">
+                    <td class="border-none" style="width: 28%;text-align:right;">
                         € ${Quotes.Total Discount}
                     </td>
                 </tr>
                 <tr class="border-none" cellspacing="0" cellpadding="0">
-                    <td class="border-none" style="width: 10%;"></td>
                     <td class="border-none" style="text-align: left;width: 20%;">
                         zzgl. MwSt.
                     </td>
+                    <td class="border-none" style="width: 10%;"></td>
                     <td class="border-none" style="width: 30%;"></td>
                     <td class="border-none" style="width: 12%;"></td>
                     <td class="border-none" style="width: 12%;"></td>
-                    <td class="border-none" style="width: 28%;">
+                    <td class="border-none" style="width: 28%;text-align:right;">
                         ${Quotes.Total VAT}
                     </td>
                 </tr>
@@ -484,14 +485,14 @@
                     <td class="border-none"></td>
                 </tr>
                 <tr class="border-none" cellspacing="0" cellpadding="0">
-                    <td class="border-left" style="width: 10%;"></td>
                     <td class="border-left" style="text-align: left; font-weight: bold;width: 20%;">
                         Gesamtsumme
                     </td>
+                    <td class="border-left" style="width: 10%;"></td>
                     <td class="border-left" style="width: 30%;"></td>
                     <td class="border-left" style="width: 12%;"></td>
                     <td class="border-left" style="width: 12%;"></td>
-                    <td class="border-left" style="width: 28%;">
+                    <td class="border-left" style="width: 28%;text-align:right;">
                         <b>${Quotes.Offer amount}</b>
                         
                     </td>
@@ -502,7 +503,7 @@
         </table>
 
         <div style="font-family:Roboto, Arial,  sans-serif;"><br></div>
-        <p class="footer_copy" style="font-size:10pt;font-family:Roboto, Arial,  sans-serif;color:#000000 !important;height: auto !important;">${Accounts.Footer Text}</p>
+        <p class="footer_copy" style="font-size:10pt;font-family:Roboto, Arial,  sans-serif;color:#000000 !important;height: auto !important;">${Accounts.Footer Copy}</p>
         <div><br></div>
 
     </div>
@@ -570,7 +571,7 @@
         style="padding-right: 0; padding-left: 0;padding-bottom:1cm; padding-top:1cm; display: flex; justify-content: space-between; font-family: 'Roboto, Arial,  sans-serif';">
         <br><br><br><br><br>
         <div
-            style="display: flex; width: 100%;   padding-top: 5px; padding-bottom: 5px; padding-left: 1.5cm; padding-right:0.5cm;">
+            style="display: flex; width: 100%;   padding-top: 5px; padding-bottom: 5px; padding-left: 1cm; padding-right:1cm;">
             <div style="flex: 1; text-align: justify; padding-left: 0;">
                 <p style="font-size:7.5pt;font-family:Roboto, Arial, sans-serif;"><strong>Kontakt</strong><br>
                     Appsfactory GmbH<br>
