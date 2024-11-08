@@ -1,0 +1,606 @@
+<div><link href="https://fonts.cdnfonts.com/css/helvetica-255" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&amp;display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            background-color: #fff;
+        }
+    
+        #pdfgen-header,
+        #pdfgen-footer,
+        #pdfgen-content {
+            box-sizing: border-box;
+        }
+    
+        #pdfgen-header {
+            /* display: block; */
+            width: 100%;
+            height: 4.5cm;
+            background-color: #fff;
+            text-align: center;
+            font-size: 14px;
+            font-family: 'Roboto, Arial,  sans-serif';
+    
+        }
+    
+        #pdfgen-footer {
+            display: block;
+            width: 100%;
+            height: 3cm;
+            background-color: #fff;
+            text-align: center;
+            font-size: 14px;
+            border-top: 1px solid #000;
+            padding-bottom: 0.5cm;
+            font-family: 'Roboto, Arial,  sans-serif';
+        }
+    
+        #pdfgen-content {
+            margin-top: 0cm;
+            margin-bottom: 0cm;
+            box-sizing: border-box;
+            padding-top: 1cm;
+            font-family: 'Roboto, Arial,  sans-serif';
+            page-break-inside: avoid;
+            height: auto;
+        }
+        .footer_copy {
+            height: auto !important;
+            display: block !important;
+        }
+    
+        .split-columns {
+            column-count: 2;
+            column-gap: 1.5em;
+            text-align: justify;
+            /* height: auto;
+            page-break-inside: avoid; */
+        }
+    
+        .split-columns li {
+            text-align: left;
+        }
+        .split-columns, .split-columns p, .split-columns ul, .split-columns ol, .split-columns span, .split-columns li, .split-columns li li, .signature p, p.acceptance, .split-columns strong, .split-columns b {
+            font-size:9.5pt;
+            font-family:Roboto, Arial,  sans-serif;
+            color: #000000;
+        }
+        .acceptance {
+            height:1cm;
+            padding:0;
+            margin:0;
+        }
+        .split-columns h2, .split-columns h3 {
+            font-size:9.5pt;
+            font-family:Roboto, Arial,  sans-serif;
+            font-weight: bold;
+        }
+    
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            page-break-inside: auto;
+        }
+    
+        thead {
+            display: table-header-group;
+            font-family: 'Roboto, Arial,  sans-serif';
+            /* background-color: none;
+                    background-color:transparent; */
+            padding-bottom: 1cm;
+        }
+    
+        tbody {
+            display: table-row-group;
+        }
+    
+        tr {
+            page-break-inside: avoid;
+            page-break-after: auto;
+            font-family: 'Roboto, Arial,  sans-serif';
+        }
+    
+        th,
+        td {
+            padding: 8px;
+            text-align: left;
+            border: 1px solid #ddd;
+            /* background-color: none;
+                    background-color:transparent; */
+            font-size: 18px;
+            font-family: 'Roboto, Arial,  sans-serif';
+        }
+    
+        /* th {
+                background-color: #f2f2f2;
+            } */
+    
+    
+        #pdfgen-header,
+        #pdfgen-footer {
+            display: none;
+        }
+        
+        #subform_1 tr, #subform_1 td, #subform_1 th {
+            padding: 5px !important;        /* Remove padding from cells */
+            margin: 0 !important;            /* Ensure no margin is applied */
+            height: auto !important;
+            border: none;
+            vertical-align: top;       /* Allow rows to adjust height automatically */
+        }
+         .quotations tfoot tr, .quotations tfoot td {
+            padding: 2px 5px !important;        /* Remove padding from cells */
+            margin: 0 !important;            /* Ensure no margin is applied */
+            height: auto !important;    
+            border-collapse: collapse !important;  /* Collapse borders to remove gaps */
+            border-spacing: 0 !important;  
+            font-size:10pt;
+            font-family:Roboto, Arial,  sans-serif;  
+        }
+    
+        table.quotations {
+            padding: 5px !important;   
+            border-collapse: collapse !important;  /* Collapse borders to remove gaps */
+            border-spacing: 0 !important;          /* Remove spacing between cells */
+            height: auto !important;
+            margin: 0 !important;
+            width: 100% !important;                /* Ensure table takes full width */
+            display: table !important;          /* Ensure it's treated as a table */
+        }
+        .quotations tfoot {
+            padding: 5px !important;   
+            border-collapse: collapse !important;  /* Collapse borders to remove gaps */
+            border-spacing: 0 !important;          /* Remove spacing between cells */
+            height: auto !important;
+            margin: 0 !important;
+            width: 100% !important;                /* Ensure table takes full width */
+            display: table !important;             /* Ensure it's treated as a table */
+        }
+    
+        tbody#subform_1 {
+            padding: 5px !important;     
+            border-collapse: collapse !important;
+            border-spacing: 0 !important;
+            height: auto !important;
+            margin: 0 !important;
+        }
+    
+    
+        .info-table {
+            margin-top: 10px;
+            width: 10%;
+            margin-left: auto;
+            border-collapse: collapse;
+            /* Ensure no table borders */
+            border: none;
+        }
+    
+        .info-table td {
+            padding: 2px;
+            border: none;
+            border-collapse: collapse;
+            /* Ensure no table borders */
+        }
+    
+        .border-none,
+        tr.border-none {
+            border: none;
+            border-collapse: collapse;
+            /* Ensure no table borders */
+        }
+    
+        .border-left {
+            border-left: none;
+            border-right: none;
+            border-color: black;
+            border-bottom: 4px double black; 
+        }
+    
+        .btop {
+            border-top: none;
+        }
+    
+        .address-section {
+            position: relative;
+            margin-top: -100px;
+            font-size: 12px;
+        }
+        
+    .contactInformation, .contactInformation td, .contactInformation tr {
+        font-family: 'Roboto, Arial,  sans-serif';
+        font-size: 7.5pt !important;
+        border: none;
+        border-collapse: collapse;
+        padding:0;
+        margin:0;
+    }
+    
+        @media print {
+            body {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+                padding-left: 1cm;
+                padding-right: 1cm;
+                padding-bottom: 0cm;
+                font-family: 'Roboto, Arial,  sans-serif';
+            }
+    
+            .page {
+                page-break-before: always;
+                width: 100%;
+                box-sizing: border-box;
+                padding-top: 15cm;
+                padding-bottom: 2cm;
+            }
+    
+            /* .qt_head {
+                position: fixed;
+                display:block;
+                margin-top: 0cm !important;
+                top: 0;
+            } */
+    
+            div#s_head {
+                /* display: block; */
+                position: fixed !important;
+            }
+    
+            .last-page #pdfgen-footer {
+                display: block;
+                position: fixed;
+                bottom: 0;
+            }
+    
+            td,
+            thead,
+            tr,
+            tfoot {
+                font-family: 'Roboto, Arial,  sans-serif';
+            }
+            #subform_1 tr:nth-child(4n+2){
+                background-color: rgb(237, 237, 237);
+            }
+            #subform_1 tr.title {
+                background-color: #fff;
+            }
+        }
+    </style>
+    
+    
+    <zcrm-pdfgen-margin top-margin="0.0" bottom-margin="0.0" left-margin="0.0" right-margin="0.0"></zcrm-pdfgen-margin>
+    <zcrm-pdfgen-spacing header-spacing="0.0" footer-spacing="0.0"></zcrm-pdfgen-spacing>
+    
+    <section id="header-container" class="first-page" style="display: flex; justify-content: space-between;align-items: center;">
+        <div class="address-details" style="display: flex; justify-content: space-between; align-items: flex-start;">
+    
+            <div style="text-align: left; flex: 1; padding-left:1cm; padding-top: 3cm;">
+                <div>
+                    <br>
+                    <table class="info-table" style="margin-left: 0; border:none; border-collapse:collapse; cellspacing:0; cellpadding:0;line-height:1.2em;" border="0" cellspacing="0" cellpadding="0">
+                        <tbody border="0" cellspacing="0" cellpadding="0">
+                            <tr border="0" cellspacing="0" cellpadding="0">
+                                <td border="0" cellspacing="0" cellpadding="0" style="line-height:1.2em;">
+                                    <p style="font-size:6.5pt;font-family:Roboto, Arial,  sans-serif;margin-bottom:0.5cm;">
+                                        Appsfactory GmbH - Dittrichring 5-9 - DE 04109 Leipzig</p>
+                                    <p style="font-size:10pt;font-family:Roboto, Arial,  sans-serif;">${Quotes.Account Name}</p>
+                                    <p style="font-size:10pt;font-family:Roboto, Arial,  sans-serif;">
+                                        ${Quotes.Subject}</p>
+                                    <p style="font-size:10pt;font-family:Roboto, Arial,  sans-serif;">${Quotes.Billing Street}</p>
+                                    <p style="font-size:10pt;font-family:Roboto, Arial,  sans-serif;">${Quotes.Billing Code}</p>
+                                    <p style="font-size:10pt;font-family:Roboto, Arial,  sans-serif;">${Quotes.Billing Country}</p>
+                                </td>
+                            </tr>
+    
+                        </tbody>
+                    </table>
+                </div>
+    
+            </div>
+        </div>
+        <div id="pdfgen-header s_head" style="display: flex;flex-direction: column;margin-left:auto;margin-right:0;">
+    
+            <div style="padding-bottom:1cm; padding-right:1cm; padding-top: 3cm;margin-right:0;margin-left:auto;">
+                <div>
+                    <br>
+                    <table class="info-table" align="right">
+                        <tbody>
+                            <tr>
+                                <td><img imgfilesize="6969" src="https://crm.zoho.eu/crm/viewInLineImage?fileContent=769b3d44530c17e6c10de03429836b3a6817d2a4dffed108813eafca2fe7ff792c0c0958e55934ffef5c2e1e39b70c9a51ed947031d7dcdc7b6807bbeed1b4af1f87b705a553b259dc4b0c3f51eb788cc9d18f02ac43eeb17297e2ea5e6fe7cd" width="140px" style="margin-bottom:1cm;text-align: left;"></td>
+                            </tr>
+                            <tr>
+                                <td style="width:100px;">
+                                    <p style="font-weight:bold;font-size:10pt;font-family:Roboto, Arial,  sans-serif;">Datum
+                                    </p>
+                                </td>
+                                <td style="text-align: right;">
+                                    <p style="font-size:10pt;font-family:Roboto, Arial,  sans-serif;">${Quotes.Modified Date}</p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="width:20%;">
+                                    <p style="font-weight:bold;font-size:10pt;font-family:Roboto, Arial,  sans-serif;">
+                                        Kunden-Nr.</p>
+                                </td>
+                                <td style="text-align: right;width:60%;">
+                                    <p style="font-size:10pt;font-family:Roboto, Arial,  sans-serif;width:100%;">
+                                        ${Accounts.GSALES Customer Number}</p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="width:20%;">
+                                    <p style="font-weight:bold;font-size:10pt;font-family:Roboto, Arial,  sans-serif;">
+                                        Angebots-Nr.</p>
+                                </td>
+                                <td style="text-align: right;width:60%;">
+                                    <p style="font-size:10pt;font-family:Roboto, Arial,  sans-serif;width:100%;"><span style="font-size: 13.3333px;">${Quotes.Quote Reference}</span></p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="width:20%;">
+                                    <p style="font-weight:bold;font-size:10pt;font-family:Roboto, Arial,  sans-serif;">
+                                        Seite-Nr.</p>
+                                </td>
+                                <td style="text-align: right;width:60%;">
+                                    <p style="font-size:10pt;font-family:Roboto, Arial,  sans-serif;width:100%;"><span class="pageNumber"></span> / <span class="totalPage"></span></p>
+                                </td>
+                            </tr>
+                            <tr>
+    
+                            </tr>
+    
+                        </tbody>
+                    </table>
+                </div>
+    
+            </div>
+        </div>
+    
+    </section>
+    
+    <section id="page-container">
+    
+        <div id="pdfgen-content">
+    
+            <h4 style="font-weight:bold;font-size:13pt;font-family:Roboto, Arial,  sans-serif;line-height:0;margin-bottom:20px;">
+                Angebot</h4>
+                <p style="font-size:10pt;font-family:Roboto, Arial,  sans-serif;color:#000000 !important;">${Accounts.Header Copy}</p>
+            
+            <t>
+                    </t><table class="quotations" border="0" style="margin-bottom:1cm;" valign="top" cellspacing="0" cellpadding="0">
+                <thead class="qt_head">
+                    <tr class="border-none">
+                        <th class="border-none" style="width: 4%;">
+                            <p style="font-size:8pt;font-family:Roboto, Arial,  sans-serif;">Nr.</p>
+                        </th>
+                        <th class="border-none" style="width: 7%;">
+                            <p style="font-size:8pt;font-family:Roboto, Arial,  sans-serif;">Menge</p>
+                        </th>
+                        <th class="border-none" style="width: 40%;">
+                            <p style="font-size:8pt;font-family:Roboto, Arial,  sans-serif;">Bezeichnung</p>
+                        </th>
+                        <th class="border-none" style="width: 8%;">
+                            <p style="font-size:8pt;font-family:Roboto, Arial,  sans-serif;text-align:right;">% Rabatt</p>
+                        </th>
+                        <th class="border-none" style="width: 8%;">
+                            <p style="font-size:8pt;font-family:Roboto, Arial,  sans-serif;text-align:right">% MwSt</p>
+                        </th>
+                        <th class="border-none" style="width: 14%;">
+                            <p style="font-size:8pt;font-family:Roboto, Arial,  sans-serif;text-align:right">Einzelpreis</p>
+                        </th>
+                        <th class="border-none" style="width: 14%;">
+                            <p style="font-size:8pt;font-family:Roboto, Arial,  sans-serif;text-align:right">Gesamtpreis</p>
+                        </th>
+    
+                    </tr>
+                </thead>
+                <tbody id="subform_1" class="QuotedItems">
+                    <!-- This section will be dynamically populated with items -->
+                    <tr class="title">
+                        <td class="border-none"></td>
+                        <td class="border-none"></td>
+                        <td colspan="5" style="font-size:10pt;font-family:Roboto, Arial,  sans-serif;padding:5px 0 10px 5px !important;">
+                            <b>${Quoted Items.Group Title}</b>
+                        </td>
+                    </tr>
+                    <tr class="border-none ebg">
+                        <td class="border-none" style="font-size:10pt;font-family:Roboto, Arial,  sans-serif;">
+                            ${Quoted Items.S.NO}
+                        </td>
+                        <td class="border-none" style="font-size:10pt;font-family:Roboto, Arial,  sans-serif;">
+                            ${Quoted Items.Quantity} ${Quoted Items.Timeframe Format}
+                        </td>
+                        <td class="border-none" style="font-size:10pt;font-family:Roboto, Arial,  sans-serif;">
+                            ${Quoted Items.Product Name}
+                                <br><span>${Quoted Items.Description}</span>
+                        </td>
+                        <td class="border-none" style="font-size:10pt;font-family:Roboto, Arial,  sans-serif;text-align:right">
+                            ${Quoted Items.Discount(%)}
+                            
+                        </td>
+                        <td class="border-none" style="font-size:10pt;font-family:Roboto, Arial,  sans-serif;text-align:right">
+                            ${Quoted Items.Tax(%)} %
+                        </td>
+                        <td class="border-none" style="font-size:10pt;font-family:Roboto, Arial,  sans-serif;text-align:right">
+                           ${Quoted Items.List Price}
+                        </td>
+                        <td class="border-none" style="font-size:10pt;font-family:Roboto, Arial,  sans-serif;text-align:right">
+                            ${Quoted Items.Amount}
+                        </td>
+                    </tr>
+                
+                    <!-- Repeat above block for each item -->
+                </tbody>
+            </table>
+            <table class="quotations" style="border-top:2px solid black;width:100%;margin-top: 2cm;" cellspacing="0" cellpadding="0">
+                <tfoot border="0" style="padding-top: 1cm;" cellspacing="0" cellpadding="0">
+                    <tr class="border-none" cellspacing="0" cellpadding="0">
+                        <td class="border-none" style="text-align:left;width: 20%;font-weight:bold;">
+                            Nettobetrag
+                        </td>
+                        <td class="border-none" style="width: 10%;"></td>
+                        <td class="border-none" style="width: 30%;"></td>
+                        <td class="border-none" style="width: 12%;"></td>
+                        <td class="border-none" style="width: 12%;"></td>
+                        <td class="border-none" style="width: 28%;text-align:right;">
+                          ${Quotes.Net amount}
+                        </td>
+                    </tr>
+                    <tr class="border-none" cellspacing="0" cellpadding="0">
+                        <td class="border-none" style="text-align:left;width: 20%;">
+                            enth. Rabatt
+                        </td>
+                        <td class="border-none" style="width: 10%;"></td>
+                        <td class="border-none" style="width: 30%;"></td>
+                        <td class="border-none" style="width: 12%;"></td>
+                        <td class="border-none" style="width: 12%;"></td>
+                        <td class="border-none" style="width: 28%;text-align:right;">
+                            € ${Quotes.Total Discount}
+                        </td>
+                    </tr>
+                    <tr class="border-none" cellspacing="0" cellpadding="0">
+                        <td class="border-none" style="text-align: left;width: 20%;">
+                            zzgl. MwSt.
+                        </td>
+                        <td class="border-none" style="width: 10%;"></td>
+                        <td class="border-none" style="width: 30%;"></td>
+                        <td class="border-none" style="width: 12%;"></td>
+                        <td class="border-none" style="width: 12%;"></td>
+                        <td class="border-none" style="width: 28%;text-align:right;">
+                            ${Quotes.Total VAT}
+                        </td>
+                    </tr>
+                    <tr cellspacing="0" cellpadding="0">
+                        <td class="border-none"></td>
+                    </tr>
+                    <tr class="border-none" cellspacing="0" cellpadding="0">
+                        <td class="border-left" style="text-align: left; font-weight: bold;width: 20%;">
+                            Gesamtsumme
+                        </td>
+                        <td class="border-left" style="width: 10%;"></td>
+                        <td class="border-left" style="width: 30%;"></td>
+                        <td class="border-left" style="width: 12%;"></td>
+                        <td class="border-left" style="width: 12%;"></td>
+                        <td class="border-left" style="width: 28%;text-align:right;">
+                            <b>${Quotes.Offer amount}</b>
+                            
+                        </td>
+                    </tr>
+                </tfoot>
+                <!-- Additional summary rows -->
+    
+            </table>
+    
+            <div style="font-family:Roboto, Arial,  sans-serif;"><br></div>
+            <p class="footer_copy" style="font-size:10pt;font-family:Roboto, Arial,  sans-serif;color:#000000 !important;height: auto !important;">${Accounts.Footer Copy}</p>
+            <div><br></div>
+    
+        </div>
+    
+        <div id="pdfgen-content">
+    
+            <div class="split-columns">
+                <div>
+                    ${Quotes.First Page}
+            </div>
+        </div>
+    
+        <div id="pdfgen-content">
+            <div class="split-columns">
+                <div>
+                    ${Quotes.Second Page}
+                </div>
+            </div>
+        </div>
+        <div id="pdfgen-content">
+            <div class="split-columns">
+                <div>
+                    ${Quotes.Third Page}
+                </div>
+            </div>
+        </div>
+        <div id="pdfgen-content">
+            <div class="split-columns">
+                <div>
+                    ${Quotes.Fourth Page}
+                </div>
+            </div>
+        </div>
+        <div id="pdfgen-content">
+            <div class="split-columns">
+                <div>
+                    ${Quotes.Fifth Page}
+                </div>
+            </div>
+        </div>
+    </div></section>
+    <div id="pdfgen-content">
+        <p class="acceptance"><input type="checkbox" id="consentCheckbox" name="consentCheckbox" required="">${Quotes.Checkbox Information} <a href="mailto:info@appsfactory.de" style="">info@appsfactory.de</a> widerrufen.
+        </p>
+        <p><br></p>
+        <p><br></p>
+    
+        <div class="signature" style="display:flex;justify-content:space-between;align-items: stretch;">
+            <div>
+                <p>________________________________<span style="white-space:pre"></span></p>
+                <p>Auftraggeber
+                </p>
+            </div>
+            <div>
+                <p>________________________________<span style="white-space:pre"></span></p>
+                <p>Appsfactory GmbH
+                </p>
+            </div>
+        </div>
+    </div>
+    
+    <section id="footer-container" class="last-page" style="padding-top:2cm;">
+        <div id="pdfgen-footer" style="padding-right: 0; padding-left: 0;padding-bottom:1cm; padding-top:1cm; display: flex; justify-content: space-between; font-family: 'Roboto, Arial,  sans-serif';">
+            <br><br><br><br><br>
+            <div style="display: flex; width: 100%;   padding-top: 5px; padding-bottom: 5px; padding-left: 1cm; padding-right:1cm;">
+                <div style="flex: 1; text-align: justify; padding-left: 0;">
+                    <p style="font-size:7.5pt;font-family:Roboto, Arial, sans-serif;"><strong>Kontakt</strong><br>
+                        Appsfactory GmbH<br>
+                        </p><table class="contactInformation" cellspacing="0" cellpadding="0" border="0">
+                            <tbody><tr cellspacing="0" cellpadding="0">
+                        <td style="font-size:7.5pt;font-family:Roboto, Arial, sans-serif;">Tel:</td> 
+                        <td style="font-size:7.5pt;font-family:Roboto, Arial, sans-serif;text-align: right;">+49(0)341 355 92 050</td>
+                    </tr><tr>
+                            <td style="font-size:7.5pt;font-family:Roboto, Arial, sans-serif;">Fax:</td> 
+                        <td style="font-size:7.5pt;font-family:Roboto, Arial, sans-serif;text-align: right;">+49(0)341 355 92 060</td>
+                    </tr>
+                    <tr>
+                        <td style="font-size:7.5pt;font-family:Roboto, Arial, sans-serif;">E-Mail: </td> 
+                        <td style="font-size:7.5pt;font-family:Roboto, Arial, sans-serif;text-align: right;"><a style="text-decoration: none;color:black;font-size:7.5pt;font-family:Roboto, Arial, sans-serif;" href="mailto:info@appsfactory.de">info@appsfactory.de</a></td>
+                        </tr>
+                    <tr>
+                        <td style="font-size:7.5pt;font-family:Roboto, Arial, sans-serif;">Web:  </td> 
+                        <td style="font-size:7.5pt;font-family:Roboto, Arial, sans-serif;text-align: right;"><a style="text-decoration: none;color:black;font-size:7.5pt;font-family:Roboto, Arial, sans-serif;" href="http://www.appsfactory.de" target="_blank">www.appsfactory.de</a></td></tr></tbody></table><p></p>
+                </div>
+                <div style="flex: 1; padding-left: 0px; text-align: left;">
+                    <p style="font-size:7.5pt;font-family:Roboto, Arial,  sans-serif;"><strong>Bankverbindung</strong><br>
+                        Sparkasse Leipzig<br>
+                        IBAN: DE35 8605 5592 1090 002935<br>
+                        BIC: WELADE8LXXX</p>
+                </div>
+                <div style="flex: 1; padding-left: 50px; text-align: left;">
+                    <p style="font-size:7.5pt;font-family:Roboto, Arial,  sans-serif;"><strong>Handelsregister</strong><br>
+                        Amtsgericht Leipzig<br>
+                        HRB 25568<br>
+                        UST-ID: DE 267330436</p>
+                </div>
+                <div style="flex: 1; padding-left: 20px; text-align: left;">
+                    <p style="font-size:7.5pt;font-family:Roboto, Arial,  sans-serif;"><strong>Geschäftsführung</strong><br>
+                        Dr. Alexander Trommen<br>
+                        Dr. Roman Belter<br>
+                        Dr. Rolf Kluge</p>
+                </div>
+            </div>
+        </div>
+    </section></div>
