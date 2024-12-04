@@ -282,11 +282,12 @@
                                 <td border="0" cellspacing="0" cellpadding="0" style="line-height:1.2em;">
                                     <p style="font-size:6.5pt;font-family:Roboto, Arial,  sans-serif;margin-bottom:0.5cm;">
                                         Appsfactory GmbH - Dittrichring 5-9 - DE 04109 Leipzig</p>
-                                    <p style="font-size:10pt;font-family:Roboto, Arial,  sans-serif;">${Quotes.Account Name}</p>
-                                    <p style="font-size:10pt;font-family:Roboto, Arial,  sans-serif;">${Quotes.Subject}</p>
-                                    <p style="font-size:10pt;font-family:Roboto, Arial,  sans-serif;">${Quotes.Billing Street}</p>
-                                    <p style="font-size:10pt;font-family:Roboto, Arial,  sans-serif;">${Quotes.Billing Code}</p>
-                                    <p style="font-size:10pt;font-family:Roboto, Arial,  sans-serif;">${Quotes.Billing Country}</p>
+                                    <p style="width:6cm;font-size:10pt;font-family:Roboto, Arial,  sans-serif;">${Quotes.Account Name}</p>
+                                    <p style="width:6cm;font-size:10pt;font-family:Roboto, Arial,  sans-serif;">${Quotes.Title} ${Quotes.First Name} ${Quotes.Last Name}</p>
+                                    <p style="width:6cm;font-size:10pt;font-family:Roboto, Arial,  sans-serif;">${Quotes.Billing Street}</p>
+                                    <p style="width:6cm;font-size:10pt;font-family:Roboto, Arial,  sans-serif;">${Quotes.Billing Code} ${Quotes.Billing City}</p>
+                                    <p style="width:6cm;font-size:10pt;font-family:Roboto, Arial,  sans-serif;">${Quotes.Billing State}</p>
+                                    <p style="width:6cm;font-size:10pt;font-family:Roboto, Arial,  sans-serif;">${Quotes.Billing Country}</p>
                                 </td>
                             </tr>
     
@@ -304,7 +305,7 @@
                     <table class="info-table" align="right">
                         <tbody>
                             <tr>
-                                <td><img imgfilesize="6969" src="https://crm.zoho.eu/crm/viewInLineImage?fileContent=7a9ddb68671120f62afba477242affa7fc5796e8e189182a2650281447c1df09efbde100b1417ce82cfff9c919ed3798c11045c198d2f27534208193fa797b0cd676e0a9686699c247cf0988f673604af42f38b836b73a98f34277b6e10a3d24" width="140px" style="margin-bottom:1cm;text-align: left;"></td>
+                                <td><img imgfilesize="6969" src="https://crm.zoho.eu/crm/viewInLineImage?fileContent=512c9b7c509272f8bf242c7355aa7484cdfd0a976dfe0749ba572ef1078cd98ac6d449ab9731024535a591e46a687c06fc9ffad715a51fe1192b43363be2ee1e778641247a4e2af949abb517d971e037b5bfa904559cff0165c7be171e8b9ac6" width="140px" style="margin-bottom:1cm;text-align: left;"></td>
                             </tr>
                             <tr>
                                 <td style="width:100px;">
@@ -312,7 +313,7 @@
                                     </p>
                                 </td>
                                 <td style="text-align: right;">
-                                    <p style="font-size:10pt;font-family:Roboto, Arial,  sans-serif;">${Quotes.Modified Date}</p>
+                                    <p style="font-size:10pt;font-family:Roboto, Arial,  sans-serif;">${Quotes.Created Date}</p>
                                 </td>
                             </tr>
                             <tr>
@@ -322,13 +323,13 @@
                                 </td>
                                 <td style="text-align: right;width:60%;">
                                     <p style="font-size:10pt;font-family:Roboto, Arial,  sans-serif;width:100%;">
-                                        ${Accounts.GSALES Customer Number}</p>
+                                        ${Accounts.Client Number}</p>
                                 </td>
                             </tr>
                             <tr>
                                 <td style="width:20%;">
                                     <p style="font-weight:bold;font-size:10pt;font-family:Roboto, Arial,  sans-serif;">
-                                        Angebots-Nr.</p>
+                                        Offer #</p>
                                 </td>
                                 <td style="text-align: right;width:60%;">
                                     <p style="font-size:10pt;font-family:Roboto, Arial,  sans-serif;width:100%;"><span style="font-size: 13.3333px;">${Quotes.Quote Reference}</span></p>
@@ -360,9 +361,8 @@
     
         <div id="pdfgen-content">
     
-            <h4 style="font-weight:bold;font-size:13pt;font-family:Roboto, Arial,  sans-serif;line-height:0;margin-bottom:20px;">
-                Angebot</h4>
-                <p style="font-size:10pt;font-family:Roboto, Arial,  sans-serif;color:#000000 !important;">${Accounts.Header Copy}</p>
+            <h4 style="font-weight:bold;font-size:13pt;font-family:Roboto, Arial,  sans-serif;margin-bottom:20px;">Offer - ${Quotes.Subject}</h4>
+                <p style="font-size:10pt;font-family:Roboto, Arial,  sans-serif;color:#000000 !important;">${Quotes.Introduction Text}</p>
             
             <t>
                     </t><table class="quotations" border="0" style="margin-bottom:1cm;" valign="top" cellspacing="0" cellpadding="0">
@@ -406,19 +406,17 @@
                             ${Quoted Items.S.NO}
                         </td>
                         <td class="border-none" style="font-size:10pt;font-family:Roboto, Arial,  sans-serif;">
-                            ${Quoted Items.Quantity} ${Quoted Items.Timeframe Format}
-                        </td>
+                            ${Quoted Items.Quantity} ${Quoted Items.Timeframe Formats}</td>
                         <td class="border-none" style="font-size:10pt;font-family:Roboto, Arial,  sans-serif;">
                             ${Quoted Items.Product Name}
-                                <br><span>${Quoted Items.Description}</span>
+                                <br><br><span>${Quoted Items.Description}</span>
                         </td>
                         <td class="border-none" style="font-size:10pt;font-family:Roboto, Arial,  sans-serif;text-align:right">
                             ${Quoted Items.Discount(%)}
                             
                         </td>
                         <td class="border-none" style="font-size:10pt;font-family:Roboto, Arial,  sans-serif;text-align:right">
-                            ${Quoted Items.Tax(%)} %
-                        </td>
+                            ${Quoted Items.Tax Rate}</td>
                         <td class="border-none" style="font-size:10pt;font-family:Roboto, Arial,  sans-serif;text-align:right">
                            ${Quoted Items.List Price}
                         </td>
@@ -490,7 +488,7 @@
             </table>
     
             <div style="font-family:Roboto, Arial,  sans-serif;"><br></div>
-            <p class="footer_copy" style="font-size:10pt;font-family:Roboto, Arial,  sans-serif;color:#000000 !important;height: auto !important;">${Accounts.Footer Copy}</p>
+            <p class="footer_copy" style="font-size:10pt;font-family:Roboto, Arial,  sans-serif;color:#000000 !important;height: auto !important;">${Quotes.Description}</p>
             <div><br></div>
     
         </div>
