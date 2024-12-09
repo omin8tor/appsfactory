@@ -32,7 +32,7 @@
         #pdfgen-footer {
             display: block;
             width: 100%;
-            height: 4.5cm;
+            height: 3cm;
             background-color: #fff;
             text-align: center;
             font-size: 14px;
@@ -57,20 +57,27 @@
     
         .split-columns {
             column-count: 2;
-            column-gap: 2em;
+            column-gap: 1.5em;
             text-align: justify;
+            /* height: auto;
+            page-break-inside: avoid; */
         }
     
         .split-columns li {
             text-align: left;
         }
         .split-columns, .split-columns p, .split-columns ul, .split-columns ol, .split-columns span, .split-columns li, .split-columns li li, .signature p, p.acceptance, .split-columns strong, .split-columns b {
-            font-size:10pt;
+            font-size:9.5pt;
             font-family:Roboto, Arial,  sans-serif;
             color: #000000;
         }
+        .acceptance {
+            height:1cm;
+            padding:0;
+            margin:0;
+        }
         .split-columns h2, .split-columns h3 {
-            font-size:10pt;
+            font-size:9.5pt;
             font-family:Roboto, Arial,  sans-serif;
             font-weight: bold;
         }
@@ -221,7 +228,7 @@
                 box-sizing: border-box;
                 padding-left: 1cm;
                 padding-right: 1cm;
-                padding-bottom: 1cm;
+                padding-bottom: 0cm;
                 font-family: 'Roboto, Arial,  sans-serif';
             }
     
@@ -230,7 +237,7 @@
                 width: 100%;
                 box-sizing: border-box;
                 padding-top: 15cm;
-                padding-bottom: 3cm;
+                padding-bottom: 2cm;
             }
     
             /* .qt_head {
@@ -305,11 +312,11 @@
                     <table class="info-table" align="right">
                         <tbody>
                             <tr>
-                                <td><img imgfilesize="6969" src="https://crm.zoho.eu/crm/viewInLineImage?fileContent=b374300b3b6091f908befe8dbdc7be528a42f89b328a070f25b00625eb5e1cd31ab8dfa67bb6f43b85838016c9c896e9ab466023acb111a072d49c683f030d57357aa71e6094778cb134415de7d91000f74b0209f2c9113038a04b628a27ecd3" width="140px" style="margin-bottom:1cm;text-align: left;"></td>
+                                <td><img imgfilesize="6969" src="https://crm.zoho.eu/crm/viewInLineImage?fileContent=f8800730db0774a0cd4146399858ac2c9d4ae195412839e81bf47b269c56ca551d720ee1bf568debe32c798a672b953b2c21d0101b47518247f24d4896bb56585064564d6c3f147498d55a9c9f58d77e99d76ff815fcf4040b9c3eeb21a173a7" width="140px" style="margin-bottom:1cm;text-align: left;"></td>
                             </tr>
                             <tr>
                                 <td style="width:100px;">
-                                    <p style="font-weight:bold;font-size:10pt;font-family:Roboto, Arial,  sans-serif;">Date
+                                    <p style="font-weight:bold;font-size:10pt;font-family:Roboto, Arial,  sans-serif;">Datum
                                     </p>
                                 </td>
                                 <td style="text-align: right;">
@@ -319,7 +326,7 @@
                             <tr>
                                 <td style="width:20%;">
                                     <p style="font-weight:bold;font-size:10pt;font-family:Roboto, Arial,  sans-serif;">
-                                        Customer #</p>
+                                        Kunden-Nr.</p>
                                 </td>
                                 <td style="text-align: right;width:60%;">
                                     <p style="font-size:10pt;font-family:Roboto, Arial,  sans-serif;width:100%;">
@@ -329,7 +336,7 @@
                             <tr>
                                 <td style="width:20%;">
                                     <p style="font-weight:bold;font-size:10pt;font-family:Roboto, Arial,  sans-serif;">
-                                        Offer #</p>
+                                        Angebots-Nr.</p>
                                 </td>
                                 <td style="text-align: right;width:60%;">
                                     <p style="font-size:10pt;font-family:Roboto, Arial,  sans-serif;width:100%;"><span style="font-size: 13.3333px;">${Quotes.Quote Reference}</span></p>
@@ -338,7 +345,7 @@
                             <tr>
                                 <td style="width:20%;">
                                     <p style="font-weight:bold;font-size:10pt;font-family:Roboto, Arial,  sans-serif;">
-                                        Page</p>
+                                        Seite-Nr.</p>
                                 </td>
                                 <td style="text-align: right;width:60%;">
                                     <p style="font-size:10pt;font-family:Roboto, Arial,  sans-serif;width:100%;"><span class="pageNumber"></span> / <span class="totalPage"></span></p>
@@ -361,33 +368,33 @@
     
         <div id="pdfgen-content">
     
-            <h4 style="font-weight:bold;font-size:13pt;font-family:Roboto, Arial,  sans-serif;margin-bottom:20px;">Offer - ${Quotes.Subject}</h4>
+            <h4 style="font-weight:bold;font-size:13pt;font-family:Roboto, Arial,  sans-serif;margin-bottom:20px;">Angebot - ${Quotes.Subject}</h4>
                 <p style="font-size:10pt;font-family:Roboto, Arial,  sans-serif;color:#000000 !important;">${Quotes.Introduction Text}</p>
             
             <t>
                     </t><table class="quotations" border="0" style="margin-bottom:1cm;" valign="top" cellspacing="0" cellpadding="0">
                 <thead class="qt_head">
                     <tr class="border-none">
-                        <th class="border-none" style="width: 7%;">
-                            <p style="font-size:8pt;font-family:Roboto, Arial,  sans-serif;">Pos.</p>
+                        <th class="border-none" style="width: 4%;">
+                            <p style="font-size:8pt;font-family:Roboto, Arial,  sans-serif;">Nr.</p>
                         </th>
                         <th class="border-none" style="width: 7%;">
-                            <p style="font-size:8pt;font-family:Roboto, Arial,  sans-serif;">Qty.</p>
+                            <p style="font-size:8pt;font-family:Roboto, Arial,  sans-serif;">Menge</p>
                         </th>
                         <th class="border-none" style="width: 40%;">
-                            <p style="font-size:8pt;font-family:Roboto, Arial,  sans-serif;">Description</p>
+                            <p style="font-size:8pt;font-family:Roboto, Arial,  sans-serif;">Bezeichnung</p>
                         </th>
-                        <th class="border-none" style="width: 9%;">
-                            <p style="font-size:8pt;font-family:Roboto, Arial,  sans-serif;text-align:right;">Discount</p>
+                        <th class="border-none" style="width: 8%;">
+                            <p style="font-size:8pt;font-family:Roboto, Arial,  sans-serif;text-align:right;">% Rabatt</p>
                         </th>
-                        <th class="border-none" style="width: 7%;">
-                            <p style="font-size:8pt;font-family:Roboto, Arial,  sans-serif;text-align:right">Tax</p>
-                        </th>
-                        <th class="border-none" style="width: 14%;">
-                            <p style="font-size:8pt;font-family:Roboto, Arial,  sans-serif;text-align:right">Unit price</p>
+                        <th class="border-none" style="width: 8%;">
+                            <p style="font-size:8pt;font-family:Roboto, Arial,  sans-serif;text-align:right">% MwSt</p>
                         </th>
                         <th class="border-none" style="width: 14%;">
-                            <p style="font-size:8pt;font-family:Roboto, Arial,  sans-serif;text-align:right">Amount</p>
+                            <p style="font-size:8pt;font-family:Roboto, Arial,  sans-serif;text-align:right">Einzelpreis</p>
+                        </th>
+                        <th class="border-none" style="width: 14%;">
+                            <p style="font-size:8pt;font-family:Roboto, Arial,  sans-serif;text-align:right">Gesamtpreis</p>
                         </th>
     
                     </tr>
@@ -406,7 +413,8 @@
                             ${Quoted Items.S.NO}
                         </td>
                         <td class="border-none" style="font-size:10pt;font-family:Roboto, Arial,  sans-serif;">
-                            ${Quoted Items.Quantity} ${Quoted Items.Timeframe Formats}</td>
+                            ${Quoted Items.Quantity} ${Quoted Items.Timeframe Formats}
+                        </td>
                         <td class="border-none" style="font-size:10pt;font-family:Roboto, Arial,  sans-serif;">
                             ${Quoted Items.Product Name}
                                 <br><br><span>${Quoted Items.Description}</span>
@@ -432,7 +440,7 @@
                 <tfoot border="0" style="padding-top: 1cm;" cellspacing="0" cellpadding="0">
                     <tr class="border-none" cellspacing="0" cellpadding="0">
                         <td class="border-none" style="text-align:left;width: 20%;font-weight:bold;">
-                            Subtotal
+                            Nettobetrag
                         </td>
                         <td class="border-none" style="width: 10%;"></td>
                         <td class="border-none" style="width: 30%;"></td>
@@ -444,7 +452,7 @@
                     </tr>
                     <tr class="border-none" cellspacing="0" cellpadding="0">
                         <td class="border-none" style="text-align:left;width: 20%;">
-                            Discount
+                            enth. Rabatt
                         </td>
                         <td class="border-none" style="width: 10%;"></td>
                         <td class="border-none" style="width: 30%;"></td>
@@ -456,7 +464,7 @@
                     </tr>
                     <tr class="border-none" cellspacing="0" cellpadding="0">
                         <td class="border-none" style="text-align: left;width: 20%;">
-                            Tax
+                            zzgl. MwSt.
                         </td>
                         <td class="border-none" style="width: 10%;"></td>
                         <td class="border-none" style="width: 30%;"></td>
@@ -471,7 +479,7 @@
                     </tr>
                     <tr class="border-none" cellspacing="0" cellpadding="0">
                         <td class="border-left" style="text-align: left; font-weight: bold;width: 20%;">
-                            Total
+                            Gesamtsumme
                         </td>
                         <td class="border-left" style="width: 10%;"></td>
                         <td class="border-left" style="width: 30%;"></td>
@@ -531,7 +539,7 @@
         </div>
     </div></section>
     <div id="pdfgen-content">
-        <p class="acceptance">${Quotes.Checkbox Information} <a href="mailto:info@appsfactory.de" style="">info@appsfactory.de</a>.
+        <p class="acceptance">${Quotes.Checkbox Information} <a href="mailto:info@appsfactory.de" style="">info@appsfactory.de</a> widerrufen.
         </p>
         <p><br></p>
         <p><br></p>
@@ -539,7 +547,7 @@
         <div class="signature" style="display:flex;justify-content:space-between;align-items: stretch;">
             <div>
                 <p>________________________________<span style="white-space:pre"></span></p>
-                <p>Customer
+                <p>Auftraggeber
                 </p>
             </div>
             <div>
@@ -555,7 +563,7 @@
             <br><br><br><br><br>
             <div style="display: flex; width: 100%;   padding-top: 5px; padding-bottom: 5px; padding-left: 1cm; padding-right:1cm;">
                 <div style="flex: 1; text-align: justify; padding-left: 0;">
-                    <p style="font-size:7.5pt;font-family:Roboto, Arial, sans-serif;"><strong>Contact</strong><br>
+                    <p style="font-size:7.5pt;font-family:Roboto, Arial, sans-serif;"><strong>Kontakt</strong><br>
                         Appsfactory GmbH<br>
                         </p><table class="contactInformation" cellspacing="0" cellpadding="0" border="0">
                             <tbody><tr cellspacing="0" cellpadding="0">
@@ -574,19 +582,19 @@
                         <td style="font-size:7.5pt;font-family:Roboto, Arial, sans-serif;text-align: right;"><a style="text-decoration: none;color:black;font-size:7.5pt;font-family:Roboto, Arial, sans-serif;" href="http://www.appsfactory.de" target="_blank">www.appsfactory.de</a></td></tr></tbody></table><p></p>
                 </div>
                 <div style="flex: 1; padding-left: 0px; text-align: left;">
-                    <p style="font-size:7.5pt;font-family:Roboto, Arial,  sans-serif;"><strong>Bank account</strong><br>
+                    <p style="font-size:7.5pt;font-family:Roboto, Arial,  sans-serif;"><strong>Bankverbindung</strong><br>
                         Sparkasse Leipzig<br>
                         IBAN: DE35 8605 5592 1090 002935<br>
                         BIC: WELADE8LXXX</p>
                 </div>
                 <div style="flex: 1; padding-left: 50px; text-align: left;">
-                    <p style="font-size:7.5pt;font-family:Roboto, Arial,  sans-serif;"><strong>Commercial register</strong><br>
+                    <p style="font-size:7.5pt;font-family:Roboto, Arial,  sans-serif;"><strong>Handelsregister</strong><br>
                         Amtsgericht Leipzig<br>
                         HRB 25568<br>
                         UST-ID: DE 267330436</p>
                 </div>
                 <div style="flex: 1; padding-left: 20px; text-align: left;">
-                    <p style="font-size:7.5pt;font-family:Roboto, Arial,  sans-serif;"><strong>Management</strong><br>
+                    <p style="font-size:7.5pt;font-family:Roboto, Arial,  sans-serif;"><strong>Geschäftsführung</strong><br>
                         Dr. Alexander Trommen<br>
                         Dr. Roman Belter<br>
                         Dr. Rolf Kluge</p>
